@@ -59,12 +59,12 @@ class MoreViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        var cellToDeSelect:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        let cellToDeSelect:UITableViewCell = tableView.cellForRow(at: indexPath)!
         cellToDeSelect.contentView.backgroundColor = UIColor.white
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var selectCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        let selectCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
         selectCell.contentView.backgroundColor = UIColor.white
         if indexPath.section == 0 {
             let vc = storyboard?.instantiateViewController(withIdentifier: "personal_info")

@@ -1,27 +1,14 @@
 //
-//  RegisterViewController.swift
+//  Evaluate_Form.swift
 //  copdWalk
 //
-//  Created by 41 on 2018/7/23.
-//  Copyright © 2018年 41. All rights reserved.
+//  Created by yangfourone on 2018/10/28.
+//  Copyright © 2018 41. All rights reserved.
 //
 
 import UIKit
 
-class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate  {
-    
-    // UserData
-    @IBOutlet weak var account: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var password_confirm: UITextField!
-    @IBOutlet weak var last_name: UITextField!
-    @IBOutlet weak var first_name: UITextField!
-    @IBOutlet weak var age: UITextField!
-    @IBOutlet weak var height: UITextField!
-    @IBOutlet weak var weight: UITextField!
-    @IBOutlet weak var male: UIButton!
-    @IBOutlet weak var female: UIButton!
-    
+class Evaluate_Form: UIViewController, SSRadioButtonControllerDelegate {
     // mMRC
     @IBOutlet weak var mMRC_0: UIButton!
     @IBOutlet weak var mMRC_1: UIButton!
@@ -85,9 +72,6 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
     @IBOutlet weak var cat8_4: UIButton!
     @IBOutlet weak var cat8_5: UIButton!
     
-    // drug && history
-    
-    
     var mMRC: SSRadioButtonsController?
     var cat1: SSRadioButtonsController?
     var cat2: SSRadioButtonsController?
@@ -97,7 +81,6 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
     var cat6: SSRadioButtonsController?
     var cat7: SSRadioButtonsController?
     var cat8: SSRadioButtonsController?
-    var gender: SSRadioButtonsController?
     
     var mMRC_point: UIButton?
     var cat1_point: UIButton?
@@ -108,16 +91,10 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
     var cat6_point: UIButton?
     var cat7_point: UIButton?
     var cat8_point: UIButton?
-    var choosing_gender:UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        /** close keyboard when click anywhere **/
-        self.hideKeyboardWhenTappedAround()
-        
-        /** mMRC and CAT **/
         mMRC = SSRadioButtonsController(buttons: mMRC_0, mMRC_1, mMRC_2, mMRC_3, mMRC_4)
         mMRC!.delegate = self
         
@@ -144,10 +121,6 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
         
         cat8 = SSRadioButtonsController(buttons: cat8_0, cat8_1, cat8_2, cat8_3, cat8_4, cat8_5)
         cat8!.delegate = self
-        
-        gender = SSRadioButtonsController(buttons: male, female)
-        gender!.delegate = self
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -165,11 +138,11 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
         cat6_point = cat6!.selectedButton()
         cat7_point = cat7!.selectedButton()
         cat8_point = cat8!.selectedButton()
-        choosing_gender = gender!.selectedButton()
+        
     }
     
     @IBAction func submit(_ sender: Any) {
-        if ((mMRC_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((choosing_gender?.currentTitle) != nil) {
+        if ((mMRC_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) {
             print("mMRC： \((mMRC_point?.currentTitle)!) points")
             print("cat1： \((cat1_point?.currentTitle)!) points")
             print("cat2： \((cat2_point?.currentTitle)!) points")
@@ -179,16 +152,10 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
             print("cat6： \((cat6_point?.currentTitle)!) points")
             print("cat7： \((cat7_point?.currentTitle)!) points")
             print("cat8： \((cat8_point?.currentTitle)!) points")
-            print("gender： \((choosing_gender?.currentTitle)!)")
             // upload to server
         } else {
             print("ERROR: Empty Answer!")
         }
-    }
-    
-    @IBAction func back(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "login")
-        show(vc!, sender: self)
     }
     
 }

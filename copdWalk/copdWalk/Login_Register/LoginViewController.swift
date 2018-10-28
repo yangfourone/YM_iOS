@@ -15,7 +15,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var account: UITextField!
     @IBOutlet weak var password: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,7 +29,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func register(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "register")
+        let vc = storyboard?.instantiateViewController(withIdentifier: "register") // Evaluate_Form
         show(vc!, sender: self)
     }
     
@@ -53,6 +52,7 @@ class LoginViewController: UIViewController {
         }
     }
 }
+
 /** Close Keyboard **/
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
