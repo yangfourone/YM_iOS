@@ -153,6 +153,9 @@ class Evaluate_Form: UIViewController, SSRadioButtonControllerDelegate {
             print("cat7： \((cat7_point?.currentTitle)!) points")
             print("cat8： \((cat8_point?.currentTitle)!) points")
             // upload to server
+            // back to evaluate view controller
+            let vc = storyboard?.instantiateViewController(withIdentifier: "evaluate")
+            show(vc!, sender: self)
         } else {
             print("ERROR: Empty Answer!")
         }

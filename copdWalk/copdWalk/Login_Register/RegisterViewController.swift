@@ -86,8 +86,12 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
     @IBOutlet weak var cat8_5: UIButton!
     
     // drug && history
-    
-    
+    @IBOutlet var drug: [Checkbox]!
+    @IBOutlet var history: [Checkbox]!
+    var user_drug:[String]! = ["None"]
+    var user_history:[String]! = ["None"]
+
+    // form button delegate
     var mMRC: SSRadioButtonsController?
     var cat1: SSRadioButtonsController?
     var cat2: SSRadioButtonsController?
@@ -99,6 +103,7 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
     var cat8: SSRadioButtonsController?
     var gender: SSRadioButtonsController?
     
+    // form points
     var mMRC_point: UIButton?
     var cat1_point: UIButton?
     var cat2_point: UIButton?
@@ -116,6 +121,24 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
         
         /** close keyboard when click anywhere **/
         self.hideKeyboardWhenTappedAround()
+        
+        /** drug style setting **/
+        for drug_button in drug {
+            drug_button.borderStyle = .circle
+            drug_button.checkedBorderColor = .blue
+            drug_button.uncheckedBorderColor = .black
+            drug_button.checkmarkColor = .blue
+            drug_button.checkmarkStyle = .tick
+        }
+        
+        /** history style setting **/
+        for history_button in history {
+            history_button.borderStyle = .circle
+            history_button.checkedBorderColor = .blue
+            history_button.uncheckedBorderColor = .black
+            history_button.checkmarkColor = .blue
+            history_button.checkmarkStyle = .tick
+        }
         
         /** mMRC and CAT **/
         mMRC = SSRadioButtonsController(buttons: mMRC_0, mMRC_1, mMRC_2, mMRC_3, mMRC_4)
@@ -169,7 +192,36 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
     }
     
     @IBAction func submit(_ sender: Any) {
-        if ((mMRC_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((choosing_gender?.currentTitle) != nil) {
+        
+        for drug_select in drug {
+            if drug_select.isChecked {
+                user_drug.append(drug_select.restorationIdentifier!)
+            }
+        }
+        for history_select in history {
+            if history_select.isChecked {
+                user_history.append(history_select.restorationIdentifier!)
+            }
+        }
+        user_drug.remove(at: 0)
+        user_history.remove(at: 0)
+        print("user select the drug list: \(user_drug!)")
+        print("user select the history list: \(user_history!)")
+        if password.text != password_confirm.text {
+            print("密碼與確認密碼不符")
+            user_drug.append("None")
+            user_history.append("None")
+        } else if ((mMRC_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((choosing_gender?.currentTitle) != nil) && ((account.text) != nil) && ((password.text) != nil) && ((password_confirm.text) != nil) && ((age.text) != nil) && ((height.text) != nil) && ((weight.text) != nil) {
+            let user_bmi = Float(weight.text!)!/((Float(height.text!)!/100)*(Float(height.text!)!/100))
+            print("User account: \(account.text!)")
+            print("User password: \(password.text!)")
+            print("Comfirm password: \(password_confirm.text!)")
+            print("User name： \(last_name.text!) \(first_name.text!)")
+            print("User gender： \((choosing_gender?.currentTitle)!)")
+            print("User age: \(age.text!)")
+            print("User height: \(height.text!)")
+            print("User weight: \(weight.text!)")
+            print("User BMI: \(user_bmi)")
             print("mMRC： \((mMRC_point?.currentTitle)!) points")
             print("cat1： \((cat1_point?.currentTitle)!) points")
             print("cat2： \((cat2_point?.currentTitle)!) points")
@@ -179,10 +231,12 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
             print("cat6： \((cat6_point?.currentTitle)!) points")
             print("cat7： \((cat7_point?.currentTitle)!) points")
             print("cat8： \((cat8_point?.currentTitle)!) points")
-            print("gender： \((choosing_gender?.currentTitle)!)")
             // upload to server
         } else {
             print("ERROR: Empty Answer!")
+            // error alert and initial the [string]
+            user_drug.append("None")
+            user_history.append("None")
         }
     }
     
