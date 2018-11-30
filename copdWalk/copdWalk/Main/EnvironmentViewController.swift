@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  EnvironmentViewController.swift
 //  copdWalk
 //
 //  Created by 41 on 2018/7/23.
@@ -9,26 +9,29 @@
 import UIKit
 import HomeKit
 import CoreData
+import CoreLocation
 
-class HomeViewController: UIViewController {
+class EnvironmentViewController: UIViewController, CLLocationManagerDelegate {
     
-    // progress view
-    @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var CurrentStep: UILabel!
-    @IBOutlet weak var TargetStep: UILabel!
+    // location
+    var LM = CLLocationManager()
+    var Lat:CLLocationDegrees?
+    var Long:CLLocationDegrees?
+    
     // exercise advice
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var UVimageView: UIImageView!
+    @IBOutlet weak var PM25imageView: UIImageView!
     @IBOutlet weak var exercise_advice: UILabel!
+    @IBOutlet weak var start_exercise: UIButton!
     @IBAction func start_exercise(_ sender: Any) {
     }
     // environment information
+    @IBOutlet weak var UserLocation: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var humidity: UILabel!
     @IBOutlet weak var UV: UILabel!
     @IBOutlet weak var pm25: UILabel!
     @IBOutlet weak var update_time: UILabel!
-    // weekly step
-    @IBOutlet weak var weekly_step: UILabel!
     // variable
     var progressCurrentStep:Int = 1000
     var progressTargetStep:Int?
@@ -38,48 +41,72 @@ class HomeViewController: UIViewController {
     let app = UIApplication.shared.delegate as! AppDelegate
     var viewContext: NSManagedObjectContext!
     
+    var env_information:[String:AnyObject]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //Core Data
-        viewContext = app.persistentContainer.viewContext
-        deleteUserData_OneByOne()
-        insertUserData()
-        queryUserData()
-        // pregress view
-        progressView.transform = progressView.transform.scaledBy(x: 1, y: 10)
-        //progressCurrentStep += 1
-        progressTargetStep = 7000
-        CurrentStep.text = String(progressCurrentStep)
-        TargetStep.text = String(progressTargetStep!)
-        progressScale = Float(progressCurrentStep)/Float(progressTargetStep!)
         
-        if progressScale!.isLessThanOrEqualTo(1.0) {
-            if progressScale!.isLessThanOrEqualTo(0.7) {
-                progressView.progressTintColor = UIColor.red
-            } else {
-                progressView.progressTintColor = UIColor.green
-            }
-        } else {
-            progressScale = 1.0
-            progressView.progressTintColor = UIColor.green
+        /** button & label style setting **/
+        start_exercise.layer.cornerRadius = 10
+        start_exercise.layer.borderColor = UIColor.orange.cgColor
+        start_exercise.layer.borderWidth = 2
+        
+        temperature.layer.cornerRadius = 5
+        temperature.layer.borderColor = UIColor.orange.cgColor
+        temperature.layer.borderWidth = 2
+        
+        humidity.layer.cornerRadius = 5
+        humidity.layer.borderColor = UIColor.orange.cgColor
+        humidity.layer.borderWidth = 2
+        
+        UV.layer.cornerRadius = 5
+        UV.layer.borderColor = UIColor.orange.cgColor
+        UV.layer.borderWidth = 2
+        
+        pm25.layer.cornerRadius = 5
+        pm25.layer.borderColor = UIColor.orange.cgColor
+        pm25.layer.borderWidth = 2
+        
+        
+        /** ask location request **/
+        self.LM.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            LM.delegate = self
+            LM.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            LM.startUpdatingLocation()
         }
-        progressView.progress = progressScale!
+        
+        // Core Data
+//        viewContext = app.persistentContainer.viewContext
+//        deleteUserData_OneByOne()
+//        insertUserData()
+//        queryUserData()
+        
+        /** get environment data from server **/
+        let url = URL(string: "http://140.118.122.241/copd/apiv1/env/getbyuser/qwerty")
+        
+        if let data = try? Data(contentsOf: url!) {
+            if let jsonObj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
+                env_information = (jsonObj as! [[String: AnyObject]])[(jsonObj as! [[String: AnyObject]]).count - 1]
+            }
+        }
+        
         // exercise advice
-        imageView.image = UIImage(named: "home_good.jpg")
+        UVimageView.image = UIImage(named: "Env_good.png")
+        PM25imageView.image = UIImage(named: "Env_bad_pm25.png")
         exercise_advice.text = "運動建議測試"
         // environment information
-        temperature.text = "溫度(°C)：32"
-        humidity.text = "濕度(%)：82"
-        UV.text = "紫外線：5"
-        pm25.text = "PM 2.5：7"
-        update_time.text = "最後更新時間：2018/09/08 17:08:02"
-        // weekly step
-        weekly_step.text = "步數：3421"
+        temperature.text = "  溫度(°C)：\(env_information?["temperature"] ?? "No Data" as AnyObject)"
+        humidity.text = "  濕度(%)：\(env_information?["humidity"] ?? "No Data" as AnyObject)"
+        UV.text = "  紫外線：\(env_information?["uv"] ?? "No Data" as AnyObject)"
+        pm25.text = "  PM 2.5：\(env_information?["pm25"] ?? "No Data" as AnyObject)"
+        update_time.text = "最後更新時間：\(env_information?["datetime"] ?? "No Data" as AnyObject)"
         
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {
             (timer) in
-            self.refresh()
+            //self.refresh()
         }
     }
     
@@ -88,16 +115,33 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func refresh() {
-        progressCurrentStep += 1
-        CurrentStep.text = String(progressCurrentStep)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(currentLocation.latitude) \(currentLocation.longitude)")
+        Lat = currentLocation.latitude
+        Long = currentLocation.longitude
+        ToAddress()
     }
     
-    
-
+    func ToAddress() {
+        let location = CLLocation(latitude: Lat!, longitude: Long!)
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(location) { (placemarks, error) in
+            guard error == nil, placemarks != nil else {
+                return
+            }
+            
+            for placemark in placemarks! {
+                self.UserLocation.text = "所在地： \(placemark.administrativeArea!), \(placemark.locality!)"
+                print(placemark.administrativeArea!)
+                print(placemark.locality!)
+            }
+        }
+    }
 }
 
-extension HomeViewController { /** CoreData functions **/
+extension EnvironmentViewController { /** CoreData functions **/
     
     /** Insert Data **/
     func insertUserData() {

@@ -192,7 +192,6 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
     }
     
     @IBAction func submit(_ sender: Any) {
-        
         for drug_select in drug {
             if drug_select.isChecked {
                 user_drug.append(drug_select.restorationIdentifier!)
