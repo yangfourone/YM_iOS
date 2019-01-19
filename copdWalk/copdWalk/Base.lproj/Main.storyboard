@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcD-OG-KgJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wcD-OG-KgJ">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -100,7 +100,7 @@
                                     <constraint firstAttribute="height" constant="100" id="w0T-kI-d0X"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <state key="normal" title="藥盒">
+                                <state key="normal" title="噴藥管理">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -301,14 +301,14 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xek-hS-iGN">
                                 <rect key="frame" x="15" y="623" width="167" height="85"/>
-                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99599486589431763" green="0.99613386392593384" blue="0.99595087766647339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="9Hs-HR-iPl"/>
                                     <constraint firstAttribute="width" constant="167" id="mim-DT-Irb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="開始">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="mjb-iN-xF2">
@@ -352,14 +352,14 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFi-OE-kS3">
                                 <rect key="frame" x="193" y="623" width="167" height="85"/>
-                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99599486589431763" green="0.99613386392593384" blue="0.99595087766647339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="167" id="NKt-5e-fbp"/>
                                     <constraint firstAttribute="height" constant="85" id="Qcb-UW-A9F"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="儲存">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="狀態：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVb-ol-Wf3">
@@ -417,10 +417,14 @@
                         <viewLayoutGuide key="safeArea" id="UbA-2P-aJn"/>
                     </view>
                     <navigationItem key="navigationItem" title="活動" id="Iw0-6Z-aXj"/>
+                    <connections>
+                        <outlet property="save" destination="rFi-OE-kS3" id="FDV-mQ-XYL"/>
+                        <outlet property="start" destination="Xek-hS-iGN" id="nba-Nc-bMz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Gd-IJ-f1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704.8" y="-239.40886699507391"/>
+            <point key="canvasLocation" x="1705" y="-553"/>
         </scene>
         <!--活動紀錄-->
         <scene sceneID="R2k-q9-NGG">
@@ -430,28 +434,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EBp-mM-O8Y">
-                                <rect key="frame" x="0.0" y="148" width="375" height="140"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EBp-mM-O8Y">
+                                <rect key="frame" x="0.0" y="150" width="375" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="3fw-YY-u0z"/>
+                                    <constraint firstAttribute="height" constant="140" id="P4d-Ze-uyi"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="最近步數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBq-AF-OFK">
-                                <rect key="frame" x="16" y="105" width="343" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最近步數" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBq-AF-OFK">
+                                <rect key="frame" x="16" y="108" width="343" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="cYm-u4-VQi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="活動紀錄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob7-vy-kyC">
-                                <rect key="frame" x="16" y="300" width="343" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活動紀錄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob7-vy-kyC">
+                                <rect key="frame" x="16" y="305" width="343" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="vdg-dd-2G6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bGc-8h-0dY">
-                                <rect key="frame" x="0.0" y="346" width="375" height="383"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bGc-8h-0dY">
+                                <rect key="frame" x="0.0" y="354" width="375" height="383"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bGc-8h-0dY" secondAttribute="height" multiplier="375:383" id="3ik-bc-aw4"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Activity_Cell" focusStyle="custom" rowHeight="100" id="Ewf-SI-T8R" customClass="TableviewCellViewController" customModule="copdWalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
@@ -541,6 +554,19 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EBp-mM-O8Y" firstAttribute="centerX" secondItem="WTM-KA-Bmi" secondAttribute="centerX" id="BIx-Ua-8dY"/>
+                            <constraint firstItem="bGc-8h-0dY" firstAttribute="top" secondItem="ob7-vy-kyC" secondAttribute="bottom" constant="10" id="Btg-8X-aUo"/>
+                            <constraint firstItem="ob7-vy-kyC" firstAttribute="leading" secondItem="m5H-GH-Krf" secondAttribute="leading" constant="16" id="F7z-cs-lNS"/>
+                            <constraint firstItem="EBp-mM-O8Y" firstAttribute="top" secondItem="wBq-AF-OFK" secondAttribute="bottom" constant="3" id="HMi-Fg-hyd"/>
+                            <constraint firstItem="bGc-8h-0dY" firstAttribute="leading" secondItem="m5H-GH-Krf" secondAttribute="leading" id="IIu-AB-o3C"/>
+                            <constraint firstItem="wBq-AF-OFK" firstAttribute="top" secondItem="m5H-GH-Krf" secondAttribute="top" constant="20" id="Rmg-AR-kQZ"/>
+                            <constraint firstItem="bGc-8h-0dY" firstAttribute="trailing" secondItem="m5H-GH-Krf" secondAttribute="trailing" id="THj-Nk-BOP"/>
+                            <constraint firstItem="ob7-vy-kyC" firstAttribute="top" secondItem="EBp-mM-O8Y" secondAttribute="bottom" constant="15" id="WhV-IU-L26"/>
+                            <constraint firstItem="wBq-AF-OFK" firstAttribute="leading" secondItem="m5H-GH-Krf" secondAttribute="leading" constant="16" id="Y5r-C6-yA0"/>
+                            <constraint firstItem="m5H-GH-Krf" firstAttribute="trailing" secondItem="ob7-vy-kyC" secondAttribute="trailing" constant="16" id="cvB-gu-mp6"/>
+                            <constraint firstItem="m5H-GH-Krf" firstAttribute="trailing" secondItem="wBq-AF-OFK" secondAttribute="trailing" constant="16" id="wAM-by-KaM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="m5H-GH-Krf"/>
                     </view>
                     <navigationItem key="navigationItem" title="活動紀錄" id="DXZ-NK-P94"/>
@@ -551,7 +577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2bb-C9-9kt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1705" y="454"/>
+            <point key="canvasLocation" x="1705" y="123"/>
         </scene>
         <!--衛教資訊-->
         <scene sceneID="bAt-WG-U3L">
@@ -561,23 +587,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Uv2-S1-v6d">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Uv2-S1-v6d">
                                 <rect key="frame" x="0.0" y="125" width="375" height="604"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Uv2-S1-v6d" secondAttribute="height" multiplier="375:604" id="c6P-b0-Jhn"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Evaluate_Cell_1" id="aGh-vl-jvv">
                                         <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aGh-vl-jvv" id="GaF-xM-ZKa">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Evaluate_Cell_2" id="l1y-Wz-CHU">
-                                        <rect key="frame" x="0.0" y="99.333333333333343" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l1y-Wz-CHU" id="FL1-2L-YzY">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -588,23 +608,38 @@
                                     <outlet property="delegate" destination="C3Y-vc-ZhV" id="hDK-MT-ryS"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qm-J1-KiL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qm-J1-KiL">
                                 <rect key="frame" x="0.0" y="88" width="375" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6qm-J1-KiL" secondAttribute="height" multiplier="375:37" id="HDg-fm-xUe"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="慢性阻塞性肺病 (COPD)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn7-NX-XV4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="慢性阻塞性肺病 (COPD)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn7-NX-XV4">
                                 <rect key="frame" x="16" y="116" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HBt-rZ-JFJ"/>
+                                    <constraint firstAttribute="width" constant="343" id="a63-PD-QTm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6qm-J1-KiL" firstAttribute="leading" secondItem="j4U-LC-cio" secondAttribute="leading" id="DWT-A3-Esc"/>
+                            <constraint firstItem="Jn7-NX-XV4" firstAttribute="leading" secondItem="j4U-LC-cio" secondAttribute="leading" constant="16" id="Icm-xN-TFd"/>
+                            <constraint firstItem="Uv2-S1-v6d" firstAttribute="trailing" secondItem="j4U-LC-cio" secondAttribute="trailing" id="Mc8-wt-rkp"/>
+                            <constraint firstItem="6qm-J1-KiL" firstAttribute="trailing" secondItem="j4U-LC-cio" secondAttribute="trailing" id="NqA-Kw-6u2"/>
+                            <constraint firstItem="6qm-J1-KiL" firstAttribute="top" secondItem="j4U-LC-cio" secondAttribute="top" id="iEh-FT-PtY"/>
+                            <constraint firstItem="Uv2-S1-v6d" firstAttribute="leading" secondItem="j4U-LC-cio" secondAttribute="leading" id="iMM-bj-6FG"/>
+                            <constraint firstItem="Jn7-NX-XV4" firstAttribute="top" secondItem="j4U-LC-cio" secondAttribute="top" constant="28" id="rXp-Nk-Xae"/>
+                            <constraint firstItem="Uv2-S1-v6d" firstAttribute="top" secondItem="6qm-J1-KiL" secondAttribute="bottom" id="zLa-ce-6ff"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="j4U-LC-cio"/>
                     </view>
                     <navigationItem key="navigationItem" title="衛教資訊" id="Zi2-BC-AjV"/>
@@ -954,7 +989,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JeF-Wf-3md" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4988" y="1648.5221674876848"/>
+            <point key="canvasLocation" x="5930.3999999999996" y="1648.5221674876848"/>
         </scene>
         <!--Evaluate4-->
         <scene sceneID="OIy-TT-wru">
@@ -1097,7 +1132,7 @@ B. 常見藥物副作用
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JaX-eG-qf4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5684" y="1648.5221674876848"/>
+            <point key="canvasLocation" x="6626.3999999999996" y="1648.5221674876848"/>
         </scene>
         <!--Evaluate5-->
         <scene sceneID="t8X-cH-hOD">
@@ -1247,7 +1282,7 @@ B. 常見藥物副作用
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h96-Nq-Fhv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6383.1999999999998" y="1648.5221674876848"/>
+            <point key="canvasLocation" x="7325.6000000000004" y="1648.5221674876848"/>
         </scene>
         <!--Evaluate6-->
         <scene sceneID="reX-z9-eBv">
@@ -1433,7 +1468,7 @@ B. 常見藥物副作用
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aAD-cN-mkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7079.1999999999998" y="1648.5221674876848"/>
+            <point key="canvasLocation" x="8021.6000000000004" y="1648.5221674876848"/>
         </scene>
         <!--Evaluate7-->
         <scene sceneID="jAQ-45-BsH">
@@ -1629,7 +1664,7 @@ B. 常見藥物副作用
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvx-SS-a4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7772" y="1648.5221674876848"/>
+            <point key="canvasLocation" x="8714.3999999999996" y="1648.5221674876848"/>
         </scene>
         <!--Personal Info View Controller-->
         <scene sceneID="Sv5-gb-OU0">
@@ -1692,7 +1727,7 @@ B. 常見藥物副作用
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TG6-xa-6Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1705" y="-2365"/>
+            <point key="canvasLocation" x="1705" y="-2588"/>
         </scene>
         <!--Ble Device View Controller-->
         <scene sceneID="r0a-Xz-xhT">
@@ -1804,8 +1839,8 @@ B. 常見藥物副作用
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本日中高強度活動累積：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qla-nM-0He">
                                 <rect key="frame" x="35" y="569" width="300" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="E3K-gq-SHT"/>
-                                    <constraint firstAttribute="height" constant="56" id="VCr-to-I2q"/>
+                                    <constraint firstAttribute="height" constant="56" id="brv-yb-oKB"/>
+                                    <constraint firstAttribute="width" constant="300" id="mut-5d-nah"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -1834,18 +1869,18 @@ B. 常見藥物副作用
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="w3i-wB-Fqs" firstAttribute="top" secondItem="0eq-hr-GXx" secondAttribute="top" constant="40" id="200-9L-T4u"/>
-                            <constraint firstItem="Qla-nM-0He" firstAttribute="top" secondItem="DrK-vj-EGz" secondAttribute="bottom" constant="10" id="2bV-bx-zvB"/>
+                            <constraint firstItem="w3i-wB-Fqs" firstAttribute="top" secondItem="0eq-hr-GXx" secondAttribute="top" constant="40" id="7we-dg-94q"/>
                             <constraint firstItem="DrK-vj-EGz" firstAttribute="centerX" secondItem="wbH-iH-Jvu" secondAttribute="centerX" id="KVP-cp-BDm"/>
                             <constraint firstItem="w3i-wB-Fqs" firstAttribute="centerX" secondItem="wbH-iH-Jvu" secondAttribute="centerX" id="KrI-VG-ZFr"/>
                             <constraint firstItem="ord-dN-4yU" firstAttribute="leading" secondItem="0eq-hr-GXx" secondAttribute="leading" constant="50" id="Q0B-80-pRd"/>
                             <constraint firstItem="DrK-vj-EGz" firstAttribute="leading" secondItem="0eq-hr-GXx" secondAttribute="leading" constant="35" id="Vu9-kF-OIW"/>
-                            <constraint firstItem="DrK-vj-EGz" firstAttribute="top" secondItem="w3i-wB-Fqs" secondAttribute="bottom" constant="75" id="cYI-Uv-1Wc"/>
                             <constraint firstItem="ord-dN-4yU" firstAttribute="top" secondItem="Qla-nM-0He" secondAttribute="bottom" constant="10" id="dPX-Bg-stq"/>
                             <constraint firstItem="XJq-iw-WmD" firstAttribute="top" secondItem="ord-dN-4yU" secondAttribute="bottom" constant="10" id="hmv-Zh-1xU"/>
+                            <constraint firstItem="Qla-nM-0He" firstAttribute="top" secondItem="DrK-vj-EGz" secondAttribute="bottom" constant="10" id="jo5-gh-Ccw"/>
                             <constraint firstItem="w3i-wB-Fqs" firstAttribute="leading" secondItem="0eq-hr-GXx" secondAttribute="leading" constant="37" id="lWH-L3-yif"/>
                             <constraint firstItem="Qla-nM-0He" firstAttribute="centerX" secondItem="wbH-iH-Jvu" secondAttribute="centerX" id="ltJ-TO-08q"/>
                             <constraint firstItem="XJq-iw-WmD" firstAttribute="leading" secondItem="0eq-hr-GXx" secondAttribute="leading" constant="50" id="sC2-LC-PP1"/>
+                            <constraint firstItem="DrK-vj-EGz" firstAttribute="top" secondItem="w3i-wB-Fqs" secondAttribute="bottom" constant="75" id="uDK-I9-Aag"/>
                             <constraint firstItem="Qla-nM-0He" firstAttribute="leading" secondItem="0eq-hr-GXx" secondAttribute="leading" constant="35" id="wPQ-UE-raa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0eq-hr-GXx"/>
@@ -1858,7 +1893,7 @@ B. 常見藥物副作用
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6D5-Ox-vfU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704.8" y="-1658.1280788177341"/>
+            <point key="canvasLocation" x="1705" y="-1906"/>
         </scene>
         <!--環境資料-->
         <scene sceneID="hcf-5Z-Gcc">
@@ -1869,7 +1904,7 @@ B. 常見藥物副作用
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="運動建議" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gqk-Ot-oOM">
-                                <rect key="frame" x="16" y="593" width="343" height="40"/>
+                                <rect key="frame" x="20" y="593" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="6xG-oM-B2p"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="343" id="lhK-C8-a2m"/>
@@ -2004,6 +2039,7 @@ B. 常見藥物副作用
                             <constraint firstItem="UFM-Hn-3AY" firstAttribute="top" secondItem="FWO-GW-rz2" secondAttribute="top" constant="30" id="auT-Sj-ZpP"/>
                             <constraint firstAttribute="trailing" secondItem="N0H-PG-bB0" secondAttribute="trailing" constant="55" id="eDG-GZ-9xr"/>
                             <constraint firstItem="l4i-tg-wKQ" firstAttribute="leading" secondItem="FWO-GW-rz2" secondAttribute="leading" constant="25" id="gf3-pM-omQ"/>
+                            <constraint firstItem="Gqk-Ot-oOM" firstAttribute="leading" secondItem="FWO-GW-rz2" secondAttribute="leading" constant="20" id="jt8-SX-X7j"/>
                             <constraint firstItem="cZT-gZ-7I1" firstAttribute="leading" secondItem="FWO-GW-rz2" secondAttribute="leading" constant="127" id="mta-RL-Qsc"/>
                             <constraint firstItem="BZ7-ko-rvP" firstAttribute="top" secondItem="M9v-qm-QlM" secondAttribute="bottom" constant="20" id="n3B-qn-lIc"/>
                             <constraint firstItem="FWO-GW-rz2" firstAttribute="bottom" secondItem="cZT-gZ-7I1" secondAttribute="bottom" constant="45" id="oSa-7d-KBs"/>
@@ -2012,7 +2048,6 @@ B. 常見藥物副作用
                             <constraint firstItem="Aid-g5-eNa" firstAttribute="centerX" secondItem="1jP-n5-gQP" secondAttribute="centerX" id="r8z-aM-iMp"/>
                             <constraint firstItem="kHf-4K-7mj" firstAttribute="top" secondItem="BZ7-ko-rvP" secondAttribute="bottom" constant="22.5" id="tFP-6Z-3uG"/>
                             <constraint firstItem="Aid-g5-eNa" firstAttribute="top" secondItem="l4i-tg-wKQ" secondAttribute="bottom" constant="40" id="tMk-f5-rgO"/>
-                            <constraint firstItem="Gqk-Ot-oOM" firstAttribute="centerX" secondItem="1jP-n5-gQP" secondAttribute="centerX" id="wFG-OY-A6d"/>
                             <constraint firstAttribute="trailing" secondItem="kHf-4K-7mj" secondAttribute="trailing" constant="55" id="zDw-hR-vRv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FWO-GW-rz2"/>
@@ -2033,34 +2068,40 @@ B. 常見藥物副作用
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkP-Za-HAO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704.8" y="-944.33497536945822"/>
+            <point key="canvasLocation" x="1705" y="-1230"/>
         </scene>
-        <!--Evaluate Form-->
+        <!--Cat-->
         <scene sceneID="KBA-tg-c6Y">
             <objects>
-                <viewController storyboardIdentifier="Evaluate_Form" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6en-E9-hdF" customClass="Evaluate_Form" customModule="copdWalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Cat" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6en-E9-hdF" customClass="Cat" customModule="copdWalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hFn-q4-wuv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-Wb-vS3">
-                                <rect key="frame" x="0.0" y="44" width="375" height="1122"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="772"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nuc-ag-T5N">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="850"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="下列問題是藉由評估您呼吸困難的程度來了解慢性阻塞性肺疾病的情況。請您勾選最符合您自身情況的答案。" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZL-HX-hKP">
-                                                <rect key="frame" x="8" y="48" width="359" height="49"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="慢性阻塞性肺病評估測試(CAT)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwL-8r-z0r">
+                                                <rect key="frame" x="28" y="22.666666666666515" width="319" height="27.666666666666686"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="請依照下列問題描述，越符合描述的給越高分。         (最符合的：5分、完全不符合的：0分)" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWO-Un-V9a">
+                                                <rect key="frame" x="8" y="70" width="359" height="49.666666666666664"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nl-at-PL5" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="93" width="40" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBx-AO-faS" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
+                                                <rect key="frame" x="268" y="160" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="0">
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="5">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -2075,89 +2116,12 @@ B. 常見藥物副作用
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxS-zd-9cv" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="131" width="40" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="1">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Df5-6D-qIu" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="186" width="40" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="2">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hk2-d5-nKa" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="327" width="40" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="4">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qrs-7b-dwq" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="266" width="40" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="3">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUb-1x-IUY">
-                                                <rect key="frame" x="65" y="93" width="302" height="30"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4s-2S-kaF">
+                                                <rect key="frame" x="8" y="127" width="359" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="我只有在激烈運動時才感覺到呼吸困難。">
+                                                    <fragment content="1. 我一直在咳嗽">
                                                         <attributes>
                                                             <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
@@ -2166,117 +2130,8 @@ B. 常見藥物副作用
                                                 </attributedString>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fx7-NO-NK9">
-                                                <rect key="frame" x="65" y="131" width="302" height="47"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="我在平路快速行走或上小斜坡時感覺呼吸短促。">
-                                                        <attributes>
-                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" lineHeightMultiple="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHg-Fq-YRY">
-                                                <rect key="frame" x="65" y="186" width="302" height="72"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="我在平路時即會因為呼吸困難而走的比同齡的朋友慢，或是我以正常步調走路時必須停下來休息才能呼吸">
-                                                        <attributes>
-                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" lineHeightMultiple="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VuO-jb-8ko">
-                                                <rect key="frame" x="65" y="266" width="302" height="53"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="我在平路時約行走100公尺或每隔幾分鐘就需要停下來呼吸。">
-                                                        <attributes>
-                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" lineHeightMultiple="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDj-12-s2b">
-                                                <rect key="frame" x="65" y="327" width="302" height="53"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="我因為呼吸困難而無法外出，或是穿脫衣物時感到呼吸困難。">
-                                                        <attributes>
-                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" lineHeightMultiple="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiG-lt-Egp">
-                                                <rect key="frame" x="48" y="93" width="20" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbc-uO-SLB">
-                                                <rect key="frame" x="48" y="131" width="20" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3o-cc-yK2">
-                                                <rect key="frame" x="48" y="266" width="20" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKo-s3-pg3">
-                                                <rect key="frame" x="48" y="186" width="20" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozC-nT-5DR">
-                                                <rect key="frame" x="48" y="327" width="20" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="慢性阻塞性肺病評估測試(CAT)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwL-8r-z0r">
-                                                <rect key="frame" x="8" y="397" width="359" height="45"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="請依照下列問題描述，越符合描述的給越高分。         (最符合的：5分、完全不符合的：0分)" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWO-Un-V9a">
-                                                <rect key="frame" x="8" y="450" width="359" height="49.666666666666664"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJf-Bo-cQb" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="540" width="40" height="30"/>
+                                                <rect key="frame" x="28" y="160" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="0">
@@ -2295,7 +2150,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHP-b4-xgT" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="540" width="40" height="30"/>
+                                                <rect key="frame" x="76" y="160" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="1">
@@ -2314,7 +2169,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVP-4t-A74" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="540" width="40" height="30"/>
+                                                <rect key="frame" x="124" y="160" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="2">
@@ -2333,7 +2188,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVd-3N-Ws3" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="540" width="40" height="30"/>
+                                                <rect key="frame" x="172" y="160" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="3">
@@ -2351,27 +2206,8 @@ B. 常見藥物副作用
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBx-AO-faS" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="268" y="540" width="40" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="5">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
-                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
-                                                        <real key="value" value="8"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTc-e3-W2Y" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="220" y="540" width="40" height="30"/>
+                                                <rect key="frame" x="220" y="160" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="4">
@@ -2389,22 +2225,8 @@ B. 常見藥物副作用
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4s-2S-kaF">
-                                                <rect key="frame" x="8" y="507" width="359" height="32"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="1. 我一直在咳嗽">
-                                                        <attributes>
-                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAV-f8-T3I" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="611" width="40" height="30"/>
+                                                <rect key="frame" x="28" y="231" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="0">
@@ -2423,7 +2245,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzI-mx-8Tc" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="611" width="40" height="30"/>
+                                                <rect key="frame" x="76" y="231" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="1">
@@ -2442,7 +2264,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnR-NU-PYM" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="611" width="40" height="30"/>
+                                                <rect key="frame" x="124" y="231" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="2">
@@ -2461,7 +2283,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbG-Q4-dgK" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="611" width="40" height="30"/>
+                                                <rect key="frame" x="172" y="231" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="3">
@@ -2480,7 +2302,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLV-Z8-Z0Z" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="268" y="611" width="40" height="30"/>
+                                                <rect key="frame" x="268" y="231" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="5">
@@ -2499,7 +2321,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mC-KO-a2I">
-                                                <rect key="frame" x="8" y="578" width="359" height="32"/>
+                                                <rect key="frame" x="8" y="198" width="359" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
@@ -2513,7 +2335,7 @@ B. 常見藥物副作用
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zoH-lc-swt" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="220" y="611" width="40" height="30"/>
+                                                <rect key="frame" x="220" y="231" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="4">
@@ -2532,7 +2354,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3x-A7-8wc" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="682" width="40" height="30"/>
+                                                <rect key="frame" x="28" y="302" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="0">
@@ -2551,7 +2373,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVT-dF-LTq" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="682" width="40" height="30"/>
+                                                <rect key="frame" x="76" y="302" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="1">
@@ -2570,7 +2392,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bY-20-5Zv" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="682" width="40" height="30"/>
+                                                <rect key="frame" x="124" y="302" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="2">
@@ -2589,7 +2411,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dE9-mC-D1i" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="682" width="40" height="30"/>
+                                                <rect key="frame" x="172" y="302" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="3">
@@ -2608,7 +2430,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1o-j1-hPT" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="268" y="682" width="40" height="30"/>
+                                                <rect key="frame" x="268" y="302" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="5">
@@ -2627,7 +2449,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dj6-00-l9z" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="220" y="682" width="40" height="30"/>
+                                                <rect key="frame" x="220" y="302" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="4">
@@ -2646,7 +2468,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTE-PF-UgG">
-                                                <rect key="frame" x="8" y="649" width="359" height="32"/>
+                                                <rect key="frame" x="8" y="269" width="359" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
@@ -2660,7 +2482,7 @@ B. 常見藥物副作用
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3O-Rj-4Mp" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="753" width="40" height="30"/>
+                                                <rect key="frame" x="28" y="373" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="0">
@@ -2679,7 +2501,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOz-tx-yNo" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="753" width="40" height="30"/>
+                                                <rect key="frame" x="76" y="373" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="1">
@@ -2698,7 +2520,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgP-Kb-hQ4" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="753" width="40" height="30"/>
+                                                <rect key="frame" x="124" y="373" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="2">
@@ -2717,7 +2539,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcY-iW-lOs" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="753" width="40" height="30"/>
+                                                <rect key="frame" x="172" y="373" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="3">
@@ -2736,7 +2558,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHC-Uw-cSJ" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="268" y="753" width="40" height="30"/>
+                                                <rect key="frame" x="268" y="373" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="5">
@@ -2755,7 +2577,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW0-3R-X1d" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="220" y="753" width="40" height="30"/>
+                                                <rect key="frame" x="220" y="373" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="4">
@@ -2774,7 +2596,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21I-Ok-n44">
-                                                <rect key="frame" x="8" y="720" width="359" height="32"/>
+                                                <rect key="frame" x="8" y="340" width="359" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
@@ -2788,7 +2610,7 @@ B. 常見藥物副作用
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjZ-js-uLr" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="824" width="40" height="30"/>
+                                                <rect key="frame" x="28" y="444" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="0">
@@ -2807,7 +2629,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir5-qS-gxq" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="824" width="40" height="30"/>
+                                                <rect key="frame" x="76" y="444" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="1">
@@ -2826,7 +2648,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pV-9W-fHa" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="824" width="40" height="30"/>
+                                                <rect key="frame" x="124" y="444" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="2">
@@ -2845,7 +2667,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUD-Pn-ulN" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="824" width="40" height="30"/>
+                                                <rect key="frame" x="172" y="444" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="3">
@@ -2864,7 +2686,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2v4-yh-vdp" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="268" y="824" width="40" height="30"/>
+                                                <rect key="frame" x="268" y="444" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="5">
@@ -2883,7 +2705,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DcH-xJ-vhF" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="220" y="824" width="40" height="30"/>
+                                                <rect key="frame" x="220" y="444" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="4">
@@ -2902,7 +2724,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obc-qU-Cza">
-                                                <rect key="frame" x="8" y="791" width="359" height="32"/>
+                                                <rect key="frame" x="8" y="411" width="359" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
@@ -2916,7 +2738,7 @@ B. 常見藥物副作用
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDS-B9-SC7" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="895" width="40" height="30"/>
+                                                <rect key="frame" x="28" y="515" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="0">
@@ -2935,7 +2757,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1YE-Pi-LPt" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="895" width="40" height="30"/>
+                                                <rect key="frame" x="76" y="515" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="1">
@@ -2954,7 +2776,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpG-kw-hbA" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="895" width="40" height="30"/>
+                                                <rect key="frame" x="124" y="515" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="2">
@@ -2973,7 +2795,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWP-ob-1w3" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="895" width="40" height="30"/>
+                                                <rect key="frame" x="172" y="515" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="3">
@@ -2992,7 +2814,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHr-Pl-VIr" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="268" y="895" width="40" height="30"/>
+                                                <rect key="frame" x="268" y="515" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="5">
@@ -3011,7 +2833,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFj-wx-11A" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="220" y="895" width="40" height="30"/>
+                                                <rect key="frame" x="220" y="515" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="4">
@@ -3030,7 +2852,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osx-wS-AHB">
-                                                <rect key="frame" x="8" y="862" width="359" height="32"/>
+                                                <rect key="frame" x="8" y="482" width="359" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
@@ -3044,7 +2866,7 @@ B. 常見藥物副作用
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XO0-4C-l8s" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="966" width="40" height="30"/>
+                                                <rect key="frame" x="28" y="586" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="0">
@@ -3063,7 +2885,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh6-c1-aNe" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="966" width="40" height="30"/>
+                                                <rect key="frame" x="76" y="586" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="1">
@@ -3082,7 +2904,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJ4-V6-ufE" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="966" width="40" height="30"/>
+                                                <rect key="frame" x="124" y="586" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="2">
@@ -3101,7 +2923,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0V-KO-aMC" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="966" width="40" height="30"/>
+                                                <rect key="frame" x="172" y="586" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="3">
@@ -3120,7 +2942,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZ1-tt-5Hl" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="268" y="966" width="40" height="30"/>
+                                                <rect key="frame" x="268" y="586" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="5">
@@ -3139,7 +2961,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ln-xu-Zsy" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="220" y="966" width="40" height="30"/>
+                                                <rect key="frame" x="220" y="586" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="4">
@@ -3158,7 +2980,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-mx-ywY">
-                                                <rect key="frame" x="8" y="933" width="359" height="32"/>
+                                                <rect key="frame" x="8" y="553" width="359" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
@@ -3172,7 +2994,7 @@ B. 常見藥物副作用
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rc-nQ-GAv" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="28" y="1037" width="40" height="30"/>
+                                                <rect key="frame" x="28" y="657" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="0">
@@ -3191,7 +3013,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8V-bY-21a" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="1037" width="40" height="30"/>
+                                                <rect key="frame" x="76" y="657" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="1">
@@ -3210,7 +3032,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulT-Z8-NFn" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="124" y="1037" width="40" height="30"/>
+                                                <rect key="frame" x="124" y="657" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="2">
@@ -3229,7 +3051,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XWb-w9-AYs" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="172" y="1037" width="40" height="30"/>
+                                                <rect key="frame" x="172" y="657" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="3">
@@ -3248,7 +3070,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmT-Y8-Gz7" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="268" y="1037" width="40" height="30"/>
+                                                <rect key="frame" x="268" y="657" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="5">
@@ -3267,7 +3089,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3c-1E-PQR" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
-                                                <rect key="frame" x="220" y="1037" width="40" height="30"/>
+                                                <rect key="frame" x="220" y="657" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="4">
@@ -3286,7 +3108,7 @@ B. 常見藥物副作用
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEX-8S-GQ0">
-                                                <rect key="frame" x="8" y="1004" width="359" height="32"/>
+                                                <rect key="frame" x="8" y="624" width="359" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <attributedString key="attributedText">
@@ -3299,28 +3121,27 @@ B. 常見藥物副作用
                                                 </attributedString>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ite-E8-tBU">
-                                                <rect key="frame" x="137" y="1091" width="100" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ite-E8-tBU">
+                                                <rect key="frame" x="112.66666666666669" y="710" width="150" height="30"/>
+                                                <color key="backgroundColor" red="0.99599486589431763" green="0.99613386392593384" blue="0.99595087766647339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ge0-Sl-nGk"/>
+                                                    <constraint firstAttribute="width" constant="150" id="gyR-pU-FNb"/>
+                                                </constraints>
                                                 <state key="normal" title="提交">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="submit:" destination="6en-E9-hdF" eventType="touchUpInside" id="rr0-3P-7l9"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="呼吸困難表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xK1-yw-9tw">
-                                                <rect key="frame" x="8" y="14" width="359" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1200" id="MLa-oe-4Jy"/>
+                                            <constraint firstAttribute="height" constant="850" id="MLa-oe-4Jy"/>
+                                            <constraint firstItem="xwL-8r-z0r" firstAttribute="centerX" secondItem="Nuc-ag-T5N" secondAttribute="centerX" id="fKr-S0-bYV"/>
+                                            <constraint firstItem="Ite-E8-tBU" firstAttribute="centerX" secondItem="Nuc-ag-T5N" secondAttribute="centerX" id="h3Z-Qm-1zV"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ite-E8-tBU" secondAttribute="bottom" constant="110" id="urE-WF-9gA"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3342,7 +3163,7 @@ B. 常見藥物副作用
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Btj-Nm-Bex"/>
                     </view>
-                    <size key="freeformSize" width="375" height="1200"/>
+                    <size key="freeformSize" width="375" height="850"/>
                     <connections>
                         <outlet property="cat1_0" destination="QJf-Bo-cQb" id="Yp1-zl-it1"/>
                         <outlet property="cat1_1" destination="jHP-b4-xgT" id="1AU-5N-Mmu"/>
@@ -3392,16 +3213,12 @@ B. 常見藥物副作用
                         <outlet property="cat8_3" destination="XWb-w9-AYs" id="NVd-Fo-qL3"/>
                         <outlet property="cat8_4" destination="M3c-1E-PQR" id="fbf-gQ-f6e"/>
                         <outlet property="cat8_5" destination="lmT-Y8-Gz7" id="hwX-s2-mFq"/>
-                        <outlet property="mMRC_0" destination="6nl-at-PL5" id="wAc-bW-daj"/>
-                        <outlet property="mMRC_1" destination="YxS-zd-9cv" id="cHW-N4-rkV"/>
-                        <outlet property="mMRC_2" destination="Df5-6D-qIu" id="W3F-jX-PnD"/>
-                        <outlet property="mMRC_3" destination="Qrs-7b-dwq" id="Bz5-IR-Ob5"/>
-                        <outlet property="mMRC_4" destination="Hk2-d5-nKa" id="fVw-R0-5be"/>
+                        <outlet property="submit" destination="Ite-E8-tBU" id="U2I-Mt-KLG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHG-aj-rPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2850" y="1648"/>
+            <point key="canvasLocation" x="2766" y="853"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="G86-s8-Ngq">
@@ -3654,9 +3471,9 @@ B. 常見藥物副作用
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQJ-4l-USg">
                                                 <rect key="frame" x="24" y="3057" width="80" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="返回">
-                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="back:" destination="TU5-w6-yBC" eventType="touchUpInside" id="yUI-Dc-Q73"/>
@@ -3665,9 +3482,9 @@ B. 常見藥物副作用
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgW-IM-IFQ">
                                                 <rect key="frame" x="271" y="3057" width="80" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="完成">
-                                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="submit:" destination="TU5-w6-yBC" eventType="touchUpInside" id="au2-QK-iFv"/>
@@ -3676,10 +3493,10 @@ B. 常見藥物副作用
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4T-Au-WLe">
                                                 <rect key="frame" x="285" y="13" width="60" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <state key="normal" title="返回">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="back:" destination="TU5-w6-yBC" eventType="touchUpInside" id="PAK-nO-Cel"/>
@@ -5607,6 +5424,7 @@ B. 常見藥物副作用
                     <connections>
                         <outlet property="account" destination="1m4-9K-qih" id="qbU-D4-FY2"/>
                         <outlet property="age" destination="q7x-bC-OLB" id="ADm-ne-wui"/>
+                        <outlet property="back" destination="fQJ-4l-USg" id="mAp-AO-INB"/>
                         <outlet property="cat1_0" destination="BAw-sD-ySX" id="iHC-of-H3H"/>
                         <outlet property="cat1_1" destination="cGg-d2-rQy" id="R4k-i9-TBY"/>
                         <outlet property="cat1_2" destination="VU2-x4-JEb" id="Whg-AG-gkK"/>
@@ -5667,6 +5485,7 @@ B. 常見藥物副作用
                         <outlet property="male" destination="tkL-Ra-b2J" id="y7v-uA-6jD"/>
                         <outlet property="password" destination="UQj-Sy-7Ax" id="6hR-85-2SU"/>
                         <outlet property="password_confirm" destination="zzR-ol-4zi" id="BN4-7U-K50"/>
+                        <outlet property="submit" destination="xgW-IM-IFQ" id="cWY-Dz-3EA"/>
                         <outlet property="weight" destination="D6G-EB-Oe3" id="9MI-st-Sc8"/>
                         <outletCollection property="drug" destination="vOV-Tv-Zjy" collectionClass="NSMutableArray" id="PsM-5l-AaJ"/>
                         <outletCollection property="drug" destination="AK6-We-VgH" collectionClass="NSMutableArray" id="pNG-zG-RHZ"/>
@@ -5727,7 +5546,101 @@ B. 常見藥物副作用
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOr-FP-7Ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="454"/>
+            <point key="canvasLocation" x="1004" y="123"/>
+        </scene>
+        <!--症狀管理-->
+        <scene sceneID="ioY-CK-g6W">
+            <objects>
+                <viewController storyboardIdentifier="SymptomManage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jfn-GH-BxM" customClass="SymptomManageViewController" customModule="copdWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JOk-ug-nBP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="肺功能監測" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izT-Rm-Hyu">
+                                <rect key="frame" x="40" y="133" width="120" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="QsL-Y3-e0t"/>
+                                    <constraint firstAttribute="height" constant="50" id="WDy-ti-Q7U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="量表填寫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXV-Yy-2iG">
+                                <rect key="frame" x="40" y="333" width="120" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="2Ww-Jr-yeY"/>
+                                    <constraint firstAttribute="height" constant="50" id="wBD-mi-On6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6lv-1k-LLX">
+                                <rect key="frame" x="108" y="208" width="159" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="0XJ-4Q-6Gw"/>
+                                    <constraint firstAttribute="height" constant="50" id="uhG-gH-fhJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="FEV1">
+                                    <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDC-AS-GFR">
+                                <rect key="frame" x="108" y="408" width="159" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="7Ss-XC-6Pw"/>
+                                    <constraint firstAttribute="height" constant="50" id="9jv-dU-cb5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="mMRC">
+                                    <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="mMRC:" destination="jfn-GH-BxM" eventType="touchUpInside" id="7tY-uj-Krf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xM-Eq-I5s">
+                                <rect key="frame" x="108" y="498" width="159" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XJN-hB-nTZ"/>
+                                    <constraint firstAttribute="width" constant="159" id="gcj-4X-5yx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="CAT">
+                                    <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="Cat:" destination="jfn-GH-BxM" eventType="touchUpInside" id="GaU-0p-fiW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0xM-Eq-I5s" firstAttribute="top" secondItem="eDC-AS-GFR" secondAttribute="bottom" constant="40" id="4Tv-bq-ndL"/>
+                            <constraint firstItem="6lv-1k-LLX" firstAttribute="top" secondItem="izT-Rm-Hyu" secondAttribute="bottom" constant="25" id="RJN-jY-0ap"/>
+                            <constraint firstItem="6lv-1k-LLX" firstAttribute="centerX" secondItem="JOk-ug-nBP" secondAttribute="centerX" id="TDR-9W-Fj6"/>
+                            <constraint firstItem="izT-Rm-Hyu" firstAttribute="leading" secondItem="PKK-44-6fZ" secondAttribute="leading" constant="40" id="UOq-qM-K4P"/>
+                            <constraint firstItem="eDC-AS-GFR" firstAttribute="top" secondItem="YXV-Yy-2iG" secondAttribute="bottom" constant="25" id="blz-tw-qTN"/>
+                            <constraint firstItem="YXV-Yy-2iG" firstAttribute="leading" secondItem="PKK-44-6fZ" secondAttribute="leading" constant="40" id="g0K-8a-0iC"/>
+                            <constraint firstItem="YXV-Yy-2iG" firstAttribute="top" secondItem="izT-Rm-Hyu" secondAttribute="bottom" constant="150" id="hmY-DQ-oCY"/>
+                            <constraint firstItem="0xM-Eq-I5s" firstAttribute="centerX" secondItem="JOk-ug-nBP" secondAttribute="centerX" id="sbM-QZ-dGz"/>
+                            <constraint firstItem="eDC-AS-GFR" firstAttribute="centerX" secondItem="JOk-ug-nBP" secondAttribute="centerX" id="sdP-jZ-7FI"/>
+                            <constraint firstItem="izT-Rm-Hyu" firstAttribute="top" secondItem="PKK-44-6fZ" secondAttribute="top" constant="45" id="xIH-Ir-4J6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PKK-44-6fZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="症狀管理" id="Z5G-gp-s2T"/>
+                    <connections>
+                        <outlet property="Cat" destination="0xM-Eq-I5s" id="o7o-cg-7te"/>
+                        <outlet property="fev1" destination="6lv-1k-LLX" id="T8V-XL-Ode"/>
+                        <outlet property="mMRC" destination="eDC-AS-GFR" id="cQ0-Dp-n3E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VCp-1E-Sdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1704.8" y="852.70935960591135"/>
         </scene>
         <!--活動-->
         <scene sceneID="0mx-5e-8lH">
@@ -5746,7 +5659,7 @@ B. 常見藥物副作用
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRT-rf-367" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="-239"/>
+            <point key="canvasLocation" x="1004" y="-553"/>
         </scene>
         <!--主頁-->
         <scene sceneID="7RU-Xj-Xg2">
@@ -5765,7 +5678,7 @@ B. 常見藥物副作用
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krp-zX-oER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="-943.5960591133005"/>
+            <point key="canvasLocation" x="1004" y="-1230"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9TM-Lr-UJy">
@@ -5822,7 +5735,7 @@ B. 常見藥物副作用
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKN-3c-xcO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="-1658"/>
+            <point key="canvasLocation" x="1004" y="-1906"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zJO-vf-YY7">
@@ -5840,7 +5753,7 @@ B. 常見藥物副作用
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FpC-bv-Lsw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="-2365"/>
+            <point key="canvasLocation" x="1004" y="-2588"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0SE-RU-bzc">
@@ -5859,6 +5772,313 @@ B. 常見藥物副作用
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Up1-0j-PZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1004" y="2868"/>
+        </scene>
+        <!--mMRC-->
+        <scene sceneID="XId-hI-2DA">
+            <objects>
+                <viewController storyboardIdentifier="mMRC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wSw-NW-tpD" customClass="mMRC" customModule="copdWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zU3-p4-HEE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i97-4B-TSO">
+                                <rect key="frame" x="0.0" y="44" width="375" height="522"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7D-Fk-6M7">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="下列問題是藉由評估您呼吸困難的程度來了解慢性阻塞性肺疾病的情況。請您勾選最符合您自身情況的答案。" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqc-zF-fr5">
+                                                <rect key="frame" x="8" y="58" width="359" height="49"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NH-Yu-56f" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="103" width="40" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="0">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJi-Tp-ZlA" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="141" width="40" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="1">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nap-bj-C8z" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="196" width="40" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="2">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqZ-KZ-0q0" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="337" width="40" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="4">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u51-g1-HML" customClass="SSRadioButton" customModule="copdWalk" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="276" width="40" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="3">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="strokeColor">
+                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AD-GM-jLC">
+                                                <rect key="frame" x="65" y="103" width="302" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="我只有在激烈運動時才感覺到呼吸困難。">
+                                                        <attributes>
+                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MpH-Lm-XuY">
+                                                <rect key="frame" x="65" y="141" width="302" height="47"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="我在平路快速行走或上小斜坡時感覺呼吸短促。">
+                                                        <attributes>
+                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" lineHeightMultiple="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMd-ce-V2U">
+                                                <rect key="frame" x="65" y="196" width="302" height="72"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="我在平路時即會因為呼吸困難而走的比同齡的朋友慢，或是我以正常步調走路時必須停下來休息才能呼吸">
+                                                        <attributes>
+                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" lineHeightMultiple="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryz-xr-Zjv">
+                                                <rect key="frame" x="65" y="276" width="302" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="我在平路時約行走100公尺或每隔幾分鐘就需要停下來呼吸。">
+                                                        <attributes>
+                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" lineHeightMultiple="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQt-dD-Dk8">
+                                                <rect key="frame" x="65" y="337" width="302" height="53"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="我因為呼吸困難而無法外出，或是穿脫衣物時感到呼吸困難。">
+                                                        <attributes>
+                                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="15" name=".PingFangTC-Regular"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="6" lineHeightMultiple="1" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e98-fi-Vtm">
+                                                <rect key="frame" x="48" y="103" width="20" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvL-zY-vW1">
+                                                <rect key="frame" x="48" y="141" width="20" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eT-Nt-Bpq">
+                                                <rect key="frame" x="48" y="276" width="20" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dok-b2-2uX">
+                                                <rect key="frame" x="48" y="196" width="20" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="級: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVv-He-rSh">
+                                                <rect key="frame" x="48" y="337" width="20" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="呼吸困難表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBi-iT-Olr">
+                                                <rect key="frame" x="129.33333333333334" y="15.000000000000002" width="116.66666666666666" height="27.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJ9-vJ-7iq">
+                                                <rect key="frame" x="112.66666666666669" y="410" width="150" height="30"/>
+                                                <color key="backgroundColor" red="0.99599486589999997" green="0.99613386390000003" blue="0.99595087770000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="1GB-8s-VLU"/>
+                                                    <constraint firstAttribute="height" constant="30" id="hSS-v4-Eed"/>
+                                                </constraints>
+                                                <state key="normal" title="提交">
+                                                    <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="submit:" destination="wSw-NW-tpD" eventType="touchUpInside" id="KIJ-DF-J8I"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="JJ9-vJ-7iq" firstAttribute="centerX" secondItem="K7D-Fk-6M7" secondAttribute="centerX" id="NWa-A5-Wua"/>
+                                            <constraint firstItem="rBi-iT-Olr" firstAttribute="centerX" secondItem="K7D-Fk-6M7" secondAttribute="centerX" id="Og2-W4-rng"/>
+                                            <constraint firstAttribute="bottom" secondItem="JJ9-vJ-7iq" secondAttribute="bottom" constant="160" id="T0R-mj-tL5"/>
+                                            <constraint firstAttribute="height" constant="600" id="gtQ-Ms-SX0"/>
+                                            <constraint firstItem="rBi-iT-Olr" firstAttribute="top" secondItem="K7D-Fk-6M7" secondAttribute="top" constant="15" id="tOd-mE-VU4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="K7D-Fk-6M7" firstAttribute="leading" secondItem="i97-4B-TSO" secondAttribute="leading" id="6pW-Eb-2Zp"/>
+                                    <constraint firstItem="K7D-Fk-6M7" firstAttribute="top" secondItem="i97-4B-TSO" secondAttribute="top" id="Che-y8-XMw"/>
+                                    <constraint firstAttribute="trailing" secondItem="K7D-Fk-6M7" secondAttribute="trailing" id="hoY-b0-swX"/>
+                                    <constraint firstAttribute="bottom" secondItem="K7D-Fk-6M7" secondAttribute="bottom" id="lr1-uN-ymW"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="i97-4B-TSO" firstAttribute="top" secondItem="dpS-yg-uHh" secondAttribute="top" id="6lk-of-4SG"/>
+                            <constraint firstItem="i97-4B-TSO" firstAttribute="leading" secondItem="dpS-yg-uHh" secondAttribute="leading" id="Mel-Oh-n1s"/>
+                            <constraint firstItem="i97-4B-TSO" firstAttribute="bottom" secondItem="dpS-yg-uHh" secondAttribute="bottom" id="SJt-Yu-XMR"/>
+                            <constraint firstItem="K7D-Fk-6M7" firstAttribute="width" secondItem="zU3-p4-HEE" secondAttribute="width" id="eRx-Wl-R6b"/>
+                            <constraint firstItem="i97-4B-TSO" firstAttribute="trailing" secondItem="dpS-yg-uHh" secondAttribute="trailing" id="jyQ-zb-Gcu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dpS-yg-uHh"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="600"/>
+                    <connections>
+                        <outlet property="mMRC_0" destination="7NH-Yu-56f" id="4SO-fn-YyG"/>
+                        <outlet property="mMRC_1" destination="CJi-Tp-ZlA" id="RaP-QI-nlb"/>
+                        <outlet property="mMRC_2" destination="Nap-bj-C8z" id="pBT-9h-lYy"/>
+                        <outlet property="mMRC_3" destination="u51-g1-HML" id="VGi-gw-hpK"/>
+                        <outlet property="mMRC_4" destination="jqZ-KZ-0q0" id="GnH-kS-wMd"/>
+                        <outlet property="submit" destination="JJ9-vJ-7iq" id="3dg-r7-8qq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G8I-CI-UHQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3604" y="853"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7If-6e-lBG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pIh-8f-RGg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9LG-YF-90d">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jfn-GH-BxM" kind="relationship" relationship="rootViewController" id="A8n-rv-hKc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OQA-0N-7eE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="853"/>
         </scene>
     </scenes>
     <resources>

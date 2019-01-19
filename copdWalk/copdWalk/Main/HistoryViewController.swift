@@ -9,11 +9,11 @@
 import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var activity_datetime = ["2018/08/24 19:32","2018/08/30 21:49","2018/09/07 14:22"]
-    var exercise_time = ["00:20:16","00:25:07","00:24:45"]
-    var h_i_time = ["17","21","17"]
-    var step = ["2097","2662","2496"]
-    var distance = ["733","931","873"]
+    var activity_datetime = ["2018/08/24 19:32","2018/08/30 21:49","2018/09/07 14:22","2018/09/24 19:32","2018/09/30 21:49","2018/10/07 14:22"]
+    var exercise_time = ["00:20:16","00:25:07","00:24:45","00:20:16","00:25:07","00:24:45"]
+    var h_i_time = ["17","21","17","17","21","17"]
+    var step = ["2097","2662","2496","2097","2662","2496"]
+    var distance = ["733","931","873","733","931","873"]
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -52,7 +52,7 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         cell.accessoryType = .none
-        
+    
         if let myDatetime = cell.activity_datetime {
             myDatetime.text = "\(activity_datetime[indexPath.row])"
         }

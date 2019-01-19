@@ -9,10 +9,7 @@
 import UIKit
 
 class EvaluateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var info = [
-        ["慢性阻塞性肺病","診斷與評估","患者身體活動原則","藥物治療","疾病症狀","危險因子","危險因子控制"],
-        ["mMRC 和 CAT 表單填寫"]
-    ]
+    var info = ["慢性阻塞性肺病","診斷與評估","患者身體活動原則","藥物治療","疾病症狀","危險因子","危險因子控制"]
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,16 +24,16 @@ class EvaluateViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return info.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return info[section].count
+        return info.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let Header = ["COPD (Chronic Obstructive Pulmonary Disease) 是一種呼吸道長期發炎導致無法呼吸之呼吸道阻塞，使得氣體無法通暢地進出呼吸道的疾病。",""]
-        return Header[section]
+        let Header = "COPD (Chronic Obstructive Pulmonary Disease) 是一種呼吸道長期發炎導致無法呼吸之呼吸道阻塞，使得氣體無法通暢地進出呼吸道的疾病。"
+        return Header
     }
  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,7 +43,7 @@ class EvaluateViewController: UIViewController, UITableViewDelegate, UITableView
         cell.accessoryType = .disclosureIndicator
     
         if let myLabel = cell.textLabel {
-            myLabel.text = "\(info[indexPath.section][indexPath.row])"
+            myLabel.text = "\(info[indexPath.row])"
         }
         return cell
     }
@@ -57,12 +54,7 @@ class EvaluateViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
             let vc = storyboard?.instantiateViewController(withIdentifier: "Evaluate_\(indexPath.row + 1)")
             show(vc!, sender: self)
-        } else {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "Evaluate_Form")
-            show(vc!, sender: self)
-        }
     }
 }

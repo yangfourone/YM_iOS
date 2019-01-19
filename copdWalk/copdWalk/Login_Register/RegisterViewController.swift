@@ -10,6 +10,10 @@ import UIKit
 
 class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate  {
     
+    // button
+    @IBOutlet weak var back: UIButton!
+    @IBOutlet weak var submit: UIButton!
+    
     // UserData
     @IBOutlet weak var account: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -121,6 +125,14 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
         
         /** close keyboard when click anywhere **/
         self.hideKeyboardWhenTappedAround()
+        
+        /** button style setting **/
+        back.layer.cornerRadius = 10
+        back.layer.borderColor = UIColor.black.cgColor
+        back.layer.borderWidth = 2
+        submit.layer.cornerRadius = 10
+        submit.layer.borderColor = UIColor.orange.cgColor
+        submit.layer.borderWidth = 2
         
         /** drug style setting **/
         for drug_button in drug {

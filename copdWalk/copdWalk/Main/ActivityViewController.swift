@@ -10,9 +10,21 @@ import UIKit
 
 class ActivityViewController: UIViewController {
     
+    @IBOutlet weak var start: UIButton!
+    @IBOutlet weak var save: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        /** button style setting **/
+        start.layer.cornerRadius = 10
+        start.layer.borderColor = UIColor.orange.cgColor
+        start.layer.borderWidth = 2
+        
+        save.layer.cornerRadius = 10
+        save.layer.borderColor = UIColor.orange.cgColor
+        save.layer.borderWidth = 2
     }
     
     override func didReceiveMemoryWarning() {

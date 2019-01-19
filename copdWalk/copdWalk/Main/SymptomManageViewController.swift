@@ -10,21 +10,39 @@ import UIKit
 
 class SymptomManageViewController: UIViewController {
 
+    @IBOutlet weak var fev1: UIButton!
+    @IBOutlet weak var mMRC: UIButton!
+    @IBOutlet weak var Cat: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        /** button style setting **/
+        fev1.layer.cornerRadius = 10
+        fev1.layer.borderColor = UIColor.orange.cgColor
+        fev1.layer.borderWidth = 2
+        
+        mMRC.layer.cornerRadius = 10
+        mMRC.layer.borderColor = UIColor.orange.cgColor
+        mMRC.layer.borderWidth = 2
+        
+        Cat.layer.cornerRadius = 10
+        Cat.layer.borderColor = UIColor.orange.cgColor
+        Cat.layer.borderWidth = 2
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func mMRC(_ sender: Any) {
+        // go to mMRC view controller
+        let vc = storyboard?.instantiateViewController(withIdentifier: "mMRC")
+        show(vc!, sender: self)
     }
-    */
-
+    
+    @IBAction func Cat(_ sender: Any) {
+        // go to cat view controller
+        let vc = storyboard?.instantiateViewController(withIdentifier: "Cat")
+        show(vc!, sender: self)
+    }
 }

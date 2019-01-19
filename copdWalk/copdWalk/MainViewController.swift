@@ -94,7 +94,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func Symptom_Manage(_ sender: Any) {
-        
+        let SymptomManageViewController = self.storyboard?.instantiateViewController(withIdentifier: "SymptomManage") as! SymptomManageViewController
+        self.navigationController?.pushViewController(SymptomManageViewController, animated: true)
     }
     
     @IBAction func Activity_Record(_ sender: Any) {

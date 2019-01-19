@@ -1,5 +1,5 @@
 //
-//  Evaluate_Form.swift
+//  Cat.swift
 //  copdWalk
 //
 //  Created by yangfourone on 2018/10/28.
@@ -8,13 +8,7 @@
 
 import UIKit
 
-class Evaluate_Form: UIViewController, SSRadioButtonControllerDelegate {
-    // mMRC
-    @IBOutlet weak var mMRC_0: UIButton!
-    @IBOutlet weak var mMRC_1: UIButton!
-    @IBOutlet weak var mMRC_2: UIButton!
-    @IBOutlet weak var mMRC_3: UIButton!
-    @IBOutlet weak var mMRC_4: UIButton!
+class Cat: UIViewController, SSRadioButtonControllerDelegate {
     // cat1
     @IBOutlet weak var cat1_0: UIButton!
     @IBOutlet weak var cat1_1: UIButton!
@@ -72,7 +66,6 @@ class Evaluate_Form: UIViewController, SSRadioButtonControllerDelegate {
     @IBOutlet weak var cat8_4: UIButton!
     @IBOutlet weak var cat8_5: UIButton!
     
-    var mMRC: SSRadioButtonsController?
     var cat1: SSRadioButtonsController?
     var cat2: SSRadioButtonsController?
     var cat3: SSRadioButtonsController?
@@ -82,7 +75,6 @@ class Evaluate_Form: UIViewController, SSRadioButtonControllerDelegate {
     var cat7: SSRadioButtonsController?
     var cat8: SSRadioButtonsController?
     
-    var mMRC_point: UIButton?
     var cat1_point: UIButton?
     var cat2_point: UIButton?
     var cat3_point: UIButton?
@@ -92,11 +84,17 @@ class Evaluate_Form: UIViewController, SSRadioButtonControllerDelegate {
     var cat7_point: UIButton?
     var cat8_point: UIButton?
     
+    @IBOutlet weak var submit: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        /** button style setting **/
+        submit.layer.cornerRadius = 10
+        submit.layer.borderColor = UIColor.orange.cgColor
+        submit.layer.borderWidth = 2
+        
         // Do any additional setup after loading the view, typically from a nib.
-        mMRC = SSRadioButtonsController(buttons: mMRC_0, mMRC_1, mMRC_2, mMRC_3, mMRC_4)
-        mMRC!.delegate = self
         
         cat1 = SSRadioButtonsController(buttons: cat1_0, cat1_1, cat1_2, cat1_3, cat1_4, cat1_5)
         cat1!.delegate = self
@@ -129,7 +127,6 @@ class Evaluate_Form: UIViewController, SSRadioButtonControllerDelegate {
     }
     
     func didSelectButton(selectedButton: UIButton?) {
-        mMRC_point = mMRC!.selectedButton()
         cat1_point = cat1!.selectedButton()
         cat2_point = cat2!.selectedButton()
         cat3_point = cat3!.selectedButton()
@@ -142,8 +139,7 @@ class Evaluate_Form: UIViewController, SSRadioButtonControllerDelegate {
     }
     
     @IBAction func submit(_ sender: Any) {
-        if ((mMRC_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) {
-            print("mMRC： \((mMRC_point?.currentTitle)!) points")
+        if ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) {
             print("cat1： \((cat1_point?.currentTitle)!) points")
             print("cat2： \((cat2_point?.currentTitle)!) points")
             print("cat3： \((cat3_point?.currentTitle)!) points")
@@ -154,7 +150,7 @@ class Evaluate_Form: UIViewController, SSRadioButtonControllerDelegate {
             print("cat8： \((cat8_point?.currentTitle)!) points")
             // upload to server
             // back to evaluate view controller
-            let vc = storyboard?.instantiateViewController(withIdentifier: "evaluate")
+            let vc = storyboard?.instantiateViewController(withIdentifier: "MainViewController")
             show(vc!, sender: self)
         } else {
             print("ERROR: Empty Answer!")
