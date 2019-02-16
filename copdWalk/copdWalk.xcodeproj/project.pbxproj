@@ -19,16 +19,14 @@
 		F82EF8DD210610130035BB96 /* EnvironmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8DC210610130035BB96 /* EnvironmentViewController.swift */; };
 		F82EF8DF2106103D0035BB96 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8DE2106103D0035BB96 /* HistoryViewController.swift */; };
 		F82EF8E1210610500035BB96 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8E0210610500035BB96 /* ActivityViewController.swift */; };
-		F82EF8E32106106D0035BB96 /* EvaluateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8E22106106D0035BB96 /* EvaluateViewController.swift */; };
+		F82EF8E32106106D0035BB96 /* EducationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8E22106106D0035BB96 /* EducationViewController.swift */; };
 		F82EF8E9210619420035BB96 /* BleDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8E8210619420035BB96 /* BleDeviceViewController.swift */; };
 		F82EF8EB210619690035BB96 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8EA210619690035BB96 /* PersonalInfoViewController.swift */; };
-		F838AE542147BA4200747879 /* Evaluate_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE532147BA4200747879 /* Evaluate_1.swift */; };
-		F838AE562147BA5B00747879 /* Evaluate_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE552147BA5B00747879 /* Evaluate_2.swift */; };
-		F838AE582147BA6500747879 /* Evaluate_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE572147BA6500747879 /* Evaluate_3.swift */; };
-		F838AE5A2147BA6C00747879 /* Evaluate_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE592147BA6C00747879 /* Evaluate_4.swift */; };
-		F838AE5C2147BA7400747879 /* Evaluate_5.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE5B2147BA7400747879 /* Evaluate_5.swift */; };
-		F838AE5E2147BA7D00747879 /* Evaluate_6.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE5D2147BA7D00747879 /* Evaluate_6.swift */; };
-		F838AE602147BA8500747879 /* Evaluate_7.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE5F2147BA8500747879 /* Evaluate_7.swift */; };
+		F838AE542147BA4200747879 /* Education_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE532147BA4200747879 /* Education_1.swift */; };
+		F838AE562147BA5B00747879 /* Education_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE552147BA5B00747879 /* Education_2.swift */; };
+		F838AE582147BA6500747879 /* Education_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE572147BA6500747879 /* Education_3.swift */; };
+		F838AE5A2147BA6C00747879 /* Education_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE592147BA6C00747879 /* Education_4.swift */; };
+		F838AE5C2147BA7400747879 /* Education_5.swift in Sources */ = {isa = PBXBuildFile; fileRef = F838AE5B2147BA7400747879 /* Education_5.swift */; };
 		F83A78D92186ADE500DAE9E1 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83A78D82186ADE500DAE9E1 /* Checkbox.swift */; };
 		F896A33221F2E38700766F65 /* mMRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896A33121F2E38700766F65 /* mMRC.swift */; };
 		F8BE276020E370B2004A6AC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE275F20E370B2004A6AC8 /* AppDelegate.swift */; };
@@ -89,16 +87,14 @@
 		F82EF8DC210610130035BB96 /* EnvironmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentViewController.swift; sourceTree = "<group>"; };
 		F82EF8DE2106103D0035BB96 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F82EF8E0210610500035BB96 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		F82EF8E22106106D0035BB96 /* EvaluateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateViewController.swift; sourceTree = "<group>"; };
+		F82EF8E22106106D0035BB96 /* EducationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationViewController.swift; sourceTree = "<group>"; };
 		F82EF8E8210619420035BB96 /* BleDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BleDeviceViewController.swift; sourceTree = "<group>"; };
 		F82EF8EA210619690035BB96 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
-		F838AE532147BA4200747879 /* Evaluate_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate_1.swift; sourceTree = "<group>"; };
-		F838AE552147BA5B00747879 /* Evaluate_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate_2.swift; sourceTree = "<group>"; };
-		F838AE572147BA6500747879 /* Evaluate_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate_3.swift; sourceTree = "<group>"; };
-		F838AE592147BA6C00747879 /* Evaluate_4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate_4.swift; sourceTree = "<group>"; };
-		F838AE5B2147BA7400747879 /* Evaluate_5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate_5.swift; sourceTree = "<group>"; };
-		F838AE5D2147BA7D00747879 /* Evaluate_6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate_6.swift; sourceTree = "<group>"; };
-		F838AE5F2147BA8500747879 /* Evaluate_7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluate_7.swift; sourceTree = "<group>"; };
+		F838AE532147BA4200747879 /* Education_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education_1.swift; sourceTree = "<group>"; };
+		F838AE552147BA5B00747879 /* Education_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education_2.swift; sourceTree = "<group>"; };
+		F838AE572147BA6500747879 /* Education_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education_3.swift; sourceTree = "<group>"; };
+		F838AE592147BA6C00747879 /* Education_4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education_4.swift; sourceTree = "<group>"; };
+		F838AE5B2147BA7400747879 /* Education_5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education_5.swift; sourceTree = "<group>"; };
 		F83A78D82186ADE500DAE9E1 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		F896A33121F2E38700766F65 /* mMRC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mMRC.swift; sourceTree = "<group>"; };
 		F8BE275C20E370B2004A6AC8 /* copdWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = copdWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,7 +174,7 @@
 				F825FC4121ACF3FA005793A7 /* SymptomManageViewController.swift */,
 				F82EF8DE2106103D0035BB96 /* HistoryViewController.swift */,
 				F825FC4321ACF415005793A7 /* MedicineBoxViewController.swift */,
-				F82EF8E22106106D0035BB96 /* EvaluateViewController.swift */,
+				F82EF8E22106106D0035BB96 /* EducationViewController.swift */,
 				F82EF8E8210619420035BB96 /* BleDeviceViewController.swift */,
 			);
 			path = Main;
@@ -195,14 +191,11 @@
 		F838AE512147AB0600747879 /* Education */ = {
 			isa = PBXGroup;
 			children = (
-				F838AE532147BA4200747879 /* Evaluate_1.swift */,
-				F838AE552147BA5B00747879 /* Evaluate_2.swift */,
-				F838AE572147BA6500747879 /* Evaluate_3.swift */,
-				F838AE592147BA6C00747879 /* Evaluate_4.swift */,
-				F838AE5B2147BA7400747879 /* Evaluate_5.swift */,
-				F838AE5D2147BA7D00747879 /* Evaluate_6.swift */,
-				F838AE5F2147BA8500747879 /* Evaluate_7.swift */,
-				F896A33021F2E33E00766F65 /* SymptomManage */,
+				F838AE532147BA4200747879 /* Education_1.swift */,
+				F838AE552147BA5B00747879 /* Education_2.swift */,
+				F838AE572147BA6500747879 /* Education_3.swift */,
+				F838AE592147BA6C00747879 /* Education_4.swift */,
+				F838AE5B2147BA7400747879 /* Education_5.swift */,
 			);
 			path = Education;
 			sourceTree = "<group>";
@@ -277,6 +270,7 @@
 				F825FC3A21ABD809005793A7 /* MainViewController.swift */,
 				F825FC3C21ACF376005793A7 /* Main */,
 				F838AE622148ECB400747879 /* History */,
+				F896A33021F2E33E00766F65 /* SymptomManage */,
 				F838AE512147AB0600747879 /* Education */,
 				F8BE276620E370B3004A6AC8 /* Assets.xcassets */,
 				F8BE276820E370B3004A6AC8 /* LaunchScreen.storyboard */,
@@ -483,13 +477,12 @@
 				F8CCBF8F21856CCF00FE65D4 /* SSRadioButtonsController.swift in Sources */,
 				F8CCBF3B21819C5A00FE65D4 /* Device+CoreDataProperties.swift in Sources */,
 				F8CCBF3521819C5A00FE65D4 /* Pdo+CoreDataProperties.swift in Sources */,
-				F838AE602147BA8500747879 /* Evaluate_7.swift in Sources */,
 				F8CCBF4C2181AAED00FE65D4 /* Activity+CoreDataProperties.swift in Sources */,
 				F82EF8E1210610500035BB96 /* ActivityViewController.swift in Sources */,
 				F82EF8EB210619690035BB96 /* PersonalInfoViewController.swift in Sources */,
 				F8CCBF3621819C5A00FE65D4 /* Daily+CoreDataClass.swift in Sources */,
-				F838AE5A2147BA6C00747879 /* Evaluate_4.swift in Sources */,
-				F838AE582147BA6500747879 /* Evaluate_3.swift in Sources */,
+				F838AE5A2147BA6C00747879 /* Education_4.swift in Sources */,
+				F838AE582147BA6500747879 /* Education_3.swift in Sources */,
 				F896A33221F2E38700766F65 /* mMRC.swift in Sources */,
 				F8BE276220E370B2004A6AC8 /* ViewController.swift in Sources */,
 				F8DB9403219180540019780A /* Login+CoreDataProperties.swift in Sources */,
@@ -502,20 +495,19 @@
 				F8CCBF4121819F1C00FE65D4 /* UserData+CoreDataProperties.swift in Sources */,
 				F8CCBF9021856CCF00FE65D4 /* SSRadioButton.swift in Sources */,
 				F8CCBEC62181990700FE65D4 /* copdLocalDB.xcdatamodeld in Sources */,
-				F82EF8E32106106D0035BB96 /* EvaluateViewController.swift in Sources */,
+				F82EF8E32106106D0035BB96 /* EducationViewController.swift in Sources */,
 				F82EF8E9210619420035BB96 /* BleDeviceViewController.swift in Sources */,
 				F83A78D92186ADE500DAE9E1 /* Checkbox.swift in Sources */,
 				F825FC3E21ACF39A005793A7 /* DailyStepViewController.swift in Sources */,
 				F825FC4221ACF3FA005793A7 /* SymptomManageViewController.swift in Sources */,
 				F825FC4921AD562F005793A7 /* TableviewCellViewController.swift in Sources */,
 				F82EF8DD210610130035BB96 /* EnvironmentViewController.swift in Sources */,
-				F838AE542147BA4200747879 /* Evaluate_1.swift in Sources */,
+				F838AE542147BA4200747879 /* Education_1.swift in Sources */,
 				F8CCBF3421819C5A00FE65D4 /* Pdo+CoreDataClass.swift in Sources */,
-				F838AE5C2147BA7400747879 /* Evaluate_5.swift in Sources */,
-				F838AE562147BA5B00747879 /* Evaluate_2.swift in Sources */,
+				F838AE5C2147BA7400747879 /* Education_5.swift in Sources */,
+				F838AE562147BA5B00747879 /* Education_2.swift in Sources */,
 				F8CCBF3A21819C5A00FE65D4 /* Device+CoreDataClass.swift in Sources */,
 				F8CCBF3121819C5A00FE65D4 /* Evaluate+CoreDataProperties.swift in Sources */,
-				F838AE5E2147BA7D00747879 /* Evaluate_6.swift in Sources */,
 				F825FC3B21ABD809005793A7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -108,8 +108,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func Health_Education(_ sender: Any) {
-        let EvaluateViewController = self.storyboard?.instantiateViewController(withIdentifier: "evaluate") as! EvaluateViewController
-        self.navigationController?.pushViewController(EvaluateViewController, animated: true)
+        let EducationViewController = self.storyboard?.instantiateViewController(withIdentifier: "education") as! EducationViewController
+        self.navigationController?.pushViewController(EducationViewController, animated: true)
     }
     
     @IBAction func Device_Setting(_ sender: Any) {
