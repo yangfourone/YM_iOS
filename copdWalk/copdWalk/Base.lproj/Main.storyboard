@@ -1400,7 +1400,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4P-XD-5x5">
-                                                <rect key="frame" x="31" y="1386" width="314" height="210"/>
+                                                <rect key="frame" x="30.666666666666657" y="1386" width="314" height="210"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="314" id="YqL-fU-XV4"/>
@@ -2228,8 +2228,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nuc-ag-T5N">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="850"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="慢性阻塞性肺病評估測試(CAT)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwL-8r-z0r">
-                                                <rect key="frame" x="28" y="22.666666666666515" width="319" height="27.666666666666686"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="慢性阻塞性肺病評估測試(CAT)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwL-8r-z0r">
+                                                <rect key="frame" x="28" y="15.000000000000002" width="319" height="27.666666666666671"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                                 <color key="textColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -3283,6 +3283,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="850" id="MLa-oe-4Jy"/>
+                                            <constraint firstItem="xwL-8r-z0r" firstAttribute="top" secondItem="Nuc-ag-T5N" secondAttribute="top" constant="15" id="XRz-Uq-Gwz"/>
                                             <constraint firstItem="xwL-8r-z0r" firstAttribute="centerX" secondItem="Nuc-ag-T5N" secondAttribute="centerX" id="fKr-S0-bYV"/>
                                             <constraint firstItem="Ite-E8-tBU" firstAttribute="centerX" secondItem="Nuc-ag-T5N" secondAttribute="centerX" id="h3Z-Qm-1zV"/>
                                             <constraint firstAttribute="bottom" secondItem="Ite-E8-tBU" secondAttribute="bottom" constant="110" id="urE-WF-9gA"/>
