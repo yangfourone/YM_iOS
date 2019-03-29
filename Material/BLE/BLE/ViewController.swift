@@ -82,9 +82,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             self.BluetoothPeripheral = peripheral
             self.BluetoothPeripheral.delegate = self
             
-            manager.stopScan()
+//            manager.stopScan()
             manager.connect(BluetoothPeripheral, options: nil)
-            
         }
     }
     
@@ -92,7 +91,8 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         isMyPeripheralConected = true // when connected change to true
         peripheral.delegate = self
         peripheral.discoverServices(nil)
-        
+        print("didConnect")
+        writeValue()
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
@@ -142,13 +142,16 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         
+        print("didUpdateValueFor")
+        
         if (characteristic.uuid.uuidString == "FFE1") {
             
             let readValue = characteristic.value
             
             let value = (readValue! as NSData).bytes.bindMemory(to: Int.self, capacity: readValue!.count).pointee // used to read an Int value
             
-            print (value)
+            print("read value: \(String(describing: readValue))")
+            print(value)
         }
     }
     
@@ -158,9 +161,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         
         if isMyPeripheralConected { //check if Peripheral is connected to send data
             
-            let dataToSend: Data = "Hello World!".data(using: String.Encoding.utf8)!
-            
-            BluetoothPeripheral.writeValue(dataToSend, for: Characteristic, type: CBCharacteristicWriteType.withoutResponse)    // Writing the data to the peripheral
+//            let dataToSend:Data = "1".data(using: String.Encoding.utf8)!
+//
+//            BluetoothPeripheral.writeValue(dataToSend, for: Characteristic, type: CBCharacteristicWriteType.withoutResponse)    // Writing the data to the peripheral
+//            BluetoothPeripheral.readValue(for: Characteristic)
             
         } else {
             print("Not connected")
