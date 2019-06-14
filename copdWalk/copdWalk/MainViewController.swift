@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
     
@@ -21,11 +22,16 @@ class MainViewController: UIViewController {
     @IBOutlet weak var Device_Setting: UIButton!
     @IBOutlet weak var Logout: UIButton!
     
+    /** Core Data **/
+    let app = UIApplication.shared.delegate as! AppDelegate
+    var viewContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(user_account)
+        viewContext = app.persistentContainer.viewContext
+        user_account = queryLoginData()
+        print(user_account!)
         self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
         Personal_Info.layer.cornerRadius = 10
@@ -119,14 +125,16 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(BleDeviceViewController, animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func queryLoginData() -> String {
+        do {
+            let allAccounts = try viewContext.fetch(Login.fetchRequest())
+            for account in allAccounts as! [Login] {
+                user_account = account.account
+            }
+        } catch {
+            print("error: \(error)")
+        }
+        return user_account ?? "NULL"
     }
-    */
 
 }

@@ -36,20 +36,23 @@ class MedicineBoxViewController: UIViewController {
     
     @IBAction func usage(_ sender: Any) {
         // go to usage view controller
-        let vc = storyboard?.instantiateViewController(withIdentifier: "MedicineUsage")
-        show(vc!, sender: self)
+        
+        let MedicineUsageViewController = self.storyboard?.instantiateViewController(withIdentifier: "MedicineUsage") as! MedicineUsageViewController
+        self.navigationController?.pushViewController(MedicineUsageViewController, animated: true)
     }
     
     @IBAction func setting(_ sender: Any) {
         // go to setting view controller
-        let vc = storyboard?.instantiateViewController(withIdentifier: "MedicineSetting")
-        show(vc!, sender: self)
+        
+        let MedicineSettingViewController = self.storyboard?.instantiateViewController(withIdentifier: "MedicineSetting") as! MedicineSettingViewController
+        self.navigationController?.pushViewController(MedicineSettingViewController, animated: true)
     }
     
     @IBAction func record(_ sender: Any) {
         // go to record view controller
-        let vc = storyboard?.instantiateViewController(withIdentifier: "MedicineRecord")
-        show(vc!, sender: self)
+        
+        let MedicineRecordViewController = self.storyboard?.instantiateViewController(withIdentifier: "MedicineRecord") as! MedicineRecordViewController
+        self.navigationController?.pushViewController(MedicineRecordViewController, animated: true)
     }
     
     /*

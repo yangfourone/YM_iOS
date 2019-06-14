@@ -52,8 +52,7 @@ class mMRC: UIViewController, SSRadioButtonControllerDelegate {
             // upload to server
             
             // back to evaluate view controller
-            let vc = storyboard?.instantiateViewController(withIdentifier: "MainViewController")
-            show(vc!, sender: self)
+           
         } else {
             print("ERROR: Empty Answer!")
         }

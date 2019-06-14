@@ -9,6 +9,9 @@
 import UIKit
 
 class Cat: UIViewController, SSRadioButtonControllerDelegate {
+    
+    let EvaluateUrl = URL(string: "http://copd.local.website/apiv1/evaluate/add")
+    
     // cat1
     @IBOutlet weak var cat1_0: UIButton!
     @IBOutlet weak var cat1_1: UIButton!
@@ -65,6 +68,12 @@ class Cat: UIViewController, SSRadioButtonControllerDelegate {
     @IBOutlet weak var cat8_3: UIButton!
     @IBOutlet weak var cat8_4: UIButton!
     @IBOutlet weak var cat8_5: UIButton!
+    // mmrc
+    @IBOutlet weak var mMRC_0: UIButton!
+    @IBOutlet weak var mMRC_1: UIButton!
+    @IBOutlet weak var mMRC_2: UIButton!
+    @IBOutlet weak var mMRC_3: UIButton!
+    @IBOutlet weak var mMRC_4: UIButton!
     
     var cat1: SSRadioButtonsController?
     var cat2: SSRadioButtonsController?
@@ -74,6 +83,7 @@ class Cat: UIViewController, SSRadioButtonControllerDelegate {
     var cat6: SSRadioButtonsController?
     var cat7: SSRadioButtonsController?
     var cat8: SSRadioButtonsController?
+    var mMRC: SSRadioButtonsController?
     
     var cat1_point: UIButton?
     var cat2_point: UIButton?
@@ -83,6 +93,7 @@ class Cat: UIViewController, SSRadioButtonControllerDelegate {
     var cat6_point: UIButton?
     var cat7_point: UIButton?
     var cat8_point: UIButton?
+    var mMRC_point: UIButton?
     
     @IBOutlet weak var submit: UIButton!
     
@@ -119,6 +130,9 @@ class Cat: UIViewController, SSRadioButtonControllerDelegate {
         
         cat8 = SSRadioButtonsController(buttons: cat8_0, cat8_1, cat8_2, cat8_3, cat8_4, cat8_5)
         cat8!.delegate = self
+        
+        mMRC = SSRadioButtonsController(buttons: mMRC_0, mMRC_1, mMRC_2, mMRC_3, mMRC_4)
+        mMRC!.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -135,25 +149,66 @@ class Cat: UIViewController, SSRadioButtonControllerDelegate {
         cat6_point = cat6!.selectedButton()
         cat7_point = cat7!.selectedButton()
         cat8_point = cat8!.selectedButton()
-        
+        mMRC_point = mMRC!.selectedButton()
     }
     
     @IBAction func submit(_ sender: Any) {
-        if ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) {
-            print("cat1： \((cat1_point?.currentTitle)!) points")
-            print("cat2： \((cat2_point?.currentTitle)!) points")
-            print("cat3： \((cat3_point?.currentTitle)!) points")
-            print("cat4： \((cat4_point?.currentTitle)!) points")
-            print("cat5： \((cat5_point?.currentTitle)!) points")
-            print("cat6： \((cat6_point?.currentTitle)!) points")
-            print("cat7： \((cat7_point?.currentTitle)!) points")
-            print("cat8： \((cat8_point?.currentTitle)!) points")
-            // upload to server
-            // back to evaluate view controller
-            let vc = storyboard?.instantiateViewController(withIdentifier: "MainViewController")
-            show(vc!, sender: self)
+        if ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((mMRC_point?.currentTitle) != nil){
+            
+            // 抓取現在時間
+            let now = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+            let time = formatter.string(from: now)
+            
+            // evaluate data upload to server
+            var EvaluateRequest = URLRequest(url: EvaluateUrl!)
+            EvaluateRequest.httpBody = "uid=\(user_account!)&mmrc=\((mMRC_point?.currentTitle)!)&cat1=\((cat1_point?.currentTitle)!)&cat2=\((cat2_point?.currentTitle)!)&cat3=\((cat3_point?.currentTitle)!)&cat4=\((cat4_point?.currentTitle)!)&cat5=\((cat5_point?.currentTitle)!)&cat6=\((cat6_point?.currentTitle)!)&cat7=\((cat7_point?.currentTitle)!)&cat8=\((cat8_point?.currentTitle)!)&datetime=\(time)".data(using: .utf8)
+            EvaluateRequest.httpMethod = "POST"
+            
+            let EvaluateTask = URLSession.shared.dataTask(with: EvaluateRequest) { (data, response, error) in
+                guard error == nil && data != nil else {
+                    print("error=\(String(describing: error))")
+                    return
+                }
+                
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print("response = \(String(describing: response))")
+                }
+                
+                let responseString = String(data: data!, encoding: .utf8)
+                print("responseString = \(String(describing: responseString!))")
+                if responseString == "\n\"ok\"" {
+                    // success alert
+                    let alertController = UIAlertController(title: "Success", message: "表單填寫成功!", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default) {
+                        (action) in
+                        self.dismiss (animated: true, completion: nil)
+                        
+                        // back to symptom management view controller
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                } else {
+                    // POST error
+                    let alertController = UIAlertController(title: "ERROR", message: "POST Problem", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "Check it", style: .default)
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+            EvaluateTask.resume()
+            
         } else {
             print("ERROR: Empty Answer!")
+            
+            // Empty answer alert
+            let alertController = UIAlertController(title: "ERROR", message: "請確認資料與表單是否填寫完成", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "我知道了", style: .default)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
         }
     }
     

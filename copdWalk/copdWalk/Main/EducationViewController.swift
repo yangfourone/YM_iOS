@@ -54,7 +54,7 @@ class EducationViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "Education_\(indexPath.row + 1)")
-            show(vc!, sender: self)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "Education_\(indexPath.row + 1)")
+        show(vc!, sender: self)
     }
 }

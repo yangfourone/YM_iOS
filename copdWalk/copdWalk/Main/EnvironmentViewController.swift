@@ -85,7 +85,7 @@ class EnvironmentViewController: UIViewController, CLLocationManagerDelegate {
 //        queryUserData()
         
         /** get environment data from server **/
-        let url = URL(string: "http://140.118.122.241/copd/apiv1/env/getbyuser/qwerty")
+        let url = URL(string: "http://140.118.122.241/copd/apiv1/env/getbyuser/" + user_account!)
         
         if let data = try? Data(contentsOf: url!) {
             if let jsonObj = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) {
@@ -133,9 +133,11 @@ class EnvironmentViewController: UIViewController, CLLocationManagerDelegate {
             }
             
             for placemark in placemarks! {
-                self.UserLocation.text = "所在地： \(placemark.administrativeArea!), \(placemark.locality!)"
-                print(placemark.administrativeArea!)
-                print(placemark.locality!)
+                self.UserLocation.text = "所在地：\(placemark.locality!), \(placemark.country!)"
+                print(placemark.country!) // 國家
+                print(placemark.thoroughfare!) // 路名
+                print(placemark.locality!) // 區名
+                print(placemark.postalCode!) // 郵遞區號
             }
         }
     }

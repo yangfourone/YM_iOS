@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -26,13 +28,21 @@
 		<true/>
 	</dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string></string>
+	<string>health kit step</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string></string>
+	<string>health kit step</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>user's current location</string>
+	<string>user&apos;s current location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>user's current location</string>
+	<string>user&apos;s current location</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>bluetooth-peripheral</string>
+		<string>external-accessory</string>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

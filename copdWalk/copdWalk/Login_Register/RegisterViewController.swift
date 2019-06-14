@@ -10,6 +10,9 @@ import UIKit
 
 class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate  {
     
+    let url = URL(string: "http://copd.local.website/apiv1/user/add")
+    let EvaluateUrl = URL(string: "http://copd.local.website/apiv1/evaluate/add")
+    
     // button
     @IBOutlet weak var back: UIButton!
     @IBOutlet weak var submit: UIButton!
@@ -94,7 +97,9 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
     @IBOutlet var history: [Checkbox]!
     var user_drug:[String]! = ["None"]
     var user_history:[String]! = ["None"]
-
+    @IBOutlet weak var drug_other: UITextField!
+    @IBOutlet weak var history_other: UITextField!
+    
     // form button delegate
     var mMRC: SSRadioButtonsController?
     var cat1: SSRadioButtonsController?
@@ -130,6 +135,7 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
         back.layer.cornerRadius = 10
         back.layer.borderColor = UIColor.black.cgColor
         back.layer.borderWidth = 2
+        
         submit.layer.cornerRadius = 10
         submit.layer.borderColor = UIColor.orange.cgColor
         submit.layer.borderWidth = 2
@@ -204,6 +210,11 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
     }
     
     @IBAction func submit(_ sender: Any) {
+        
+        // initialize the drug and history array
+        user_drug = ["None"]
+        user_history = ["None"]
+        // append the choosing drug and history into array
         for drug_select in drug {
             if drug_select.isChecked {
                 user_drug.append(drug_select.restorationIdentifier!)
@@ -214,46 +225,130 @@ class RegisterViewController: UIViewController, SSRadioButtonControllerDelegate 
                 user_history.append(history_select.restorationIdentifier!)
             }
         }
-        user_drug.remove(at: 0)
-        user_history.remove(at: 0)
-        print("user select the drug list: \(user_drug!)")
-        print("user select the history list: \(user_history!)")
+        
         if password.text != password_confirm.text {
+            
             print("密碼與確認密碼不符")
-            user_drug.append("None")
-            user_history.append("None")
+            
+            //TODO: 新增一個提醒，提醒使用者密碼與確認密碼不符
+            let alertController = UIAlertController(title: "ERROR", message: "密碼與確認密碼不符", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "我知道了", style: .default)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            
         } else if ((mMRC_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((cat1_point?.currentTitle) != nil) && ((choosing_gender?.currentTitle) != nil) && ((account.text) != nil) && ((password.text) != nil) && ((password_confirm.text) != nil) && ((age.text) != nil) && ((height.text) != nil) && ((weight.text) != nil) {
+            
+            // 填寫完成才把 None 拿掉
+            user_drug.remove(at: 0)
+            user_history.remove(at: 0)
+            
+            // 抓取現在時間
+            let now = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+            let time = formatter.string(from: now)
+            
+            // bmi 計算
             let user_bmi = Float(weight.text!)!/((Float(height.text!)!/100)*(Float(height.text!)!/100))
+            var user_gender = 0
+            
+            // gender transfer
+            if choosing_gender?.currentTitle == "男" {
+                user_gender = 0
+            } else {
+                user_gender = 1
+            }
+            
             print("User account: \(account.text!)")
             print("User password: \(password.text!)")
             print("Comfirm password: \(password_confirm.text!)")
             print("User name： \(last_name.text!) \(first_name.text!)")
-            print("User gender： \((choosing_gender?.currentTitle)!)")
+            print("User gender： \(user_gender)")
             print("User age: \(age.text!)")
             print("User height: \(height.text!)")
             print("User weight: \(weight.text!)")
+            print("user select the drug list: \(user_drug!)")
+            print("user select the history list: \(user_history!)")
+            print("User other drug: \(drug_other.text!)")
+            print("User other history: \(history_other.text!)")
             print("User BMI: \(user_bmi)")
-            print("mMRC： \((mMRC_point?.currentTitle)!) points")
-            print("cat1： \((cat1_point?.currentTitle)!) points")
-            print("cat2： \((cat2_point?.currentTitle)!) points")
-            print("cat3： \((cat3_point?.currentTitle)!) points")
-            print("cat4： \((cat4_point?.currentTitle)!) points")
-            print("cat5： \((cat5_point?.currentTitle)!) points")
-            print("cat6： \((cat6_point?.currentTitle)!) points")
-            print("cat7： \((cat7_point?.currentTitle)!) points")
-            print("cat8： \((cat8_point?.currentTitle)!) points")
-            // upload to server
+//            print("mMRC： \((mMRC_point?.currentTitle)!) points")
+//            print("cat1： \((cat1_point?.currentTitle)!) points")
+//            print("cat2： \((cat2_point?.currentTitle)!) points")
+//            print("cat3： \((cat3_point?.currentTitle)!) points")
+//            print("cat4： \((cat4_point?.currentTitle)!) points")
+//            print("cat5： \((cat5_point?.currentTitle)!) points")
+//            print("cat6： \((cat6_point?.currentTitle)!) points")
+//            print("cat7： \((cat7_point?.currentTitle)!) points")
+//            print("cat8： \((cat8_point?.currentTitle)!) points")
+            print("Current Time: \(time)")
+            
+            // user data upload to server
+            var request = URLRequest(url: url!)
+            request.httpBody = "id=\(account.text!)&pwd=\(password.text!)&fname=\(first_name.text!)&lname=\(last_name.text!)&age=\(age.text!)&sex=\(user_gender)&bmi=\(user_bmi)&height=\(height.text!)&weight=\(weight.text!)&history=\(user_history!)&drug=\(user_drug!)&history_other=\(history_other.text!)&drug_other=\(drug_other.text!)".data(using: .utf8)
+            request.httpMethod = "POST"
+
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                guard error == nil && data != nil else {
+                    print("error=\(String(describing: error))")
+                    return
+                }
+
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print("response = \(String(describing: response))")
+                }
+
+                let responseString = String(data: data!, encoding: .utf8)
+                print("responseString = \(String(describing: responseString))")
+            }
+            task.resume()
+            
+            // evaluate data upload to server
+            var EvaluateRequest = URLRequest(url: EvaluateUrl!)
+            EvaluateRequest.httpBody = "uid=\(account.text!)&mmrc=\((mMRC_point?.currentTitle)!)&cat1=\((cat1_point?.currentTitle)!)&cat2=\((cat2_point?.currentTitle)!)&cat3=\((cat3_point?.currentTitle)!)&cat4=\((cat4_point?.currentTitle)!)&cat5=\((cat5_point?.currentTitle)!)&cat6=\((cat6_point?.currentTitle)!)&cat7=\((cat7_point?.currentTitle)!)&cat8=\((cat8_point?.currentTitle)!)&datetime=\(time)".data(using: .utf8)
+            EvaluateRequest.httpMethod = "POST"
+
+            let EvaluateTask = URLSession.shared.dataTask(with: EvaluateRequest) { (data, response, error) in
+                guard error == nil && data != nil else {
+                    print("error=\(String(describing: error))")
+                    return
+                }
+
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print("response = \(String(describing: response))")
+                }
+
+                let responseString = String(data: data!, encoding: .utf8)
+                print("responseString = \(String(describing: responseString))")
+            }
+            EvaluateTask.resume()
+            
+            // success alert
+            let alertController = UIAlertController(title: "Success", message: "註冊成功, 請登入系統", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) {
+                (action) in
+                self.dismiss (animated: true, completion: nil)
+                
+                //TODO: back to main controller
+            }
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            
         } else {
             print("ERROR: Empty Answer!")
-            // error alert and initial the [string]
-            user_drug.append("None")
-            user_history.append("None")
+            
+            // Empty answer alert
+            let alertController = UIAlertController(title: "ERROR", message: "請確認資料與表單是否填寫完成", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "我知道了", style: .default)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
         }
     }
     
     @IBAction func back(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "login")
-        show(vc!, sender: self)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

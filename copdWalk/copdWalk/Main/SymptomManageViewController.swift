@@ -33,16 +33,20 @@ class SymptomManageViewController: UIViewController {
         Cat.layer.borderWidth = 2
     }
     
+    @IBAction func fev1(_ sender: Any) {
+        let fev1ViewController = self.storyboard?.instantiateViewController(withIdentifier: "fev1") as! FEV1
+        self.navigationController?.pushViewController(fev1ViewController, animated: true)
+    }
+    
     
     @IBAction func mMRC(_ sender: Any) {
         // go to mMRC view controller
-        let vc = storyboard?.instantiateViewController(withIdentifier: "mMRC")
-        show(vc!, sender: self)
     }
     
     @IBAction func Cat(_ sender: Any) {
         // go to cat view controller
-        let vc = storyboard?.instantiateViewController(withIdentifier: "Cat")
-        show(vc!, sender: self)
+        
+        let CatViewController = self.storyboard?.instantiateViewController(withIdentifier: "Cat") as! Cat
+        self.navigationController?.pushViewController(CatViewController, animated: true)
     }
 }

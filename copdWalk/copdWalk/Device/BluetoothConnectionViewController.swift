@@ -1,17 +1,19 @@
 //
-//  ViewController.swift
-//  BLE
+//  BluetoothConnectionViewController.swift
+//  copdWalk
 //
-//  Created by yangfourone on 2019/3/25.
+//  Created by yangfourone on 2019/5/23.
 //  Copyright © 2019 41. All rights reserved.
 //
 
 import UIKit
 import CoreBluetooth
 
-class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDataSource, UITableViewDelegate {
+class BluetoothConnectionViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var isMyPeripheralConected = false
     var manager:CBCentralManager!
     var Characteristic:CBCharacteristic!
     var BluetoothDevice:[String] = []
@@ -36,7 +38,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         return BluetoothDevice.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ble_cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ble_connection_cell", for: indexPath)
         cell.textLabel?.text = BluetoothDevice[indexPath.row]
         cell.detailTextLabel?.text = BluetoothDeviceUUID[indexPath.row].uuidString
         return cell
@@ -45,10 +47,10 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         return 1
     }
     
-    var isMyPeripheralConected = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
         manager = CBCentralManager(delegate: self, queue: nil)
     }
     
@@ -73,12 +75,12 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         print("BLE STATE: " + msg)
         
     }
-    
+
     /** didDiscover **/
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
-//        print("Name: \((peripheral.name != nil) ? peripheral.name! : "nil" )")
+        //        print("Name: \((peripheral.name != nil) ? peripheral.name! : "nil" )")
         
         if peripheral.name != nil {
             if !BluetoothDeviceUUID.contains(peripheral.identifier) {
@@ -95,7 +97,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                 print("peripheralName:\(BluetoothDevice[index!])")
                 self.BluetoothPeripheral[index!] = BluetoothPeripheral[index!]
                 self.BluetoothPeripheral[index!].delegate = self
-
+                
                 manager.stopScan()
                 manager.connect(BluetoothPeripheral[index!], options: nil)
             }
@@ -109,6 +111,18 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         peripheral.delegate = self
         peripheral.discoverServices(nil)
         print("Connected!")
+        
+        // alert success
+        let alertController = UIAlertController(title: "Success", message: "連線成功", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "我知道了", style: .default) {
+            (action) in
+            // back to device view controller
+            self.navigationController?.popViewController(animated: true)
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+        
     }
     
     /** didDiscoverServices **/
@@ -130,15 +144,15 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                     peripheral.discoverCharacteristics(nil, for: service)
                     
                 }
-                
-                /** ZoeS2 **/
+                    
+                    /** ZoeS2 **/
                 else if service.uuid == ZoeS2_Watch_Service_UUID {
                     
                     peripheral.discoverCharacteristics(nil, for: service)
                     
                 }
-                
-                /** Env Box **/
+                    
+                    /** Env Box **/
                 else if service.uuid == Env_Box_Service_UUID {
                     
                     peripheral.discoverCharacteristics(nil, for: service)
@@ -171,32 +185,32 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
                         peripheral.readValue(for: characteristic) //to read the value of the characteristic
                     }
                 }
-                
-                /** ZoeS2 **/
-                
-                // write
+                    
+                    /** ZoeS2 **/
+                    
+                    // write
                 else if characteristic.uuid == ZoeS2_Watch_Write_Characteristic_UUID {
                     
                     print("write")
                     
-                    Characteristic = characteristic
-                    print(characteristic.value![0])
+//                    Characteristic = characteristic
+//                    print(characteristic.value![0])
                     
-                    // send data to pheripheral
-//                    let dataToSend:Data = "menu.hr".data(using: String.Encoding.utf8)!
-//                    peripheral.writeValue(dataToSend, for: Characteristic, type: CBCharacteristicWriteType.withResponse)
-//                    peripheral.readValue(for: Characteristic)
+//                    send data to pheripheral
+                    let dataToSend:Data = "menu.hr".data(using: String.Encoding.utf8)!
+                    peripheral.writeValue(dataToSend, for: characteristic, type: CBCharacteristicWriteType.withResponse)
+                    
                 }
-                
-                // read
+                    
+                    // read
                 else if characteristic.uuid == ZoeS2_Watch_Read_Characteristic_UUID {
                     
                     print("read")
                     peripheral.readValue(for: characteristic) //to read the value of the characteristic
                     
                 }
-                
-                /** Env Box **/
+                    
+                    /** Env Box **/
                 else if characteristic.uuid == Env_Box_Characteristic_UUID {
                     
                     Characteristic = characteristic
@@ -222,18 +236,18 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
             print("read string value: \(readValueString!)")
             print("read int value: \(value)")
         }
-        
-        // ZoeS2
+            
+            // ZoeS2
         else if (characteristic.uuid == ZoeS2_Watch_Write_Characteristic_UUID) {
             
             let readValue = characteristic.value
             
             let value = (readValue! as NSData).bytes.bindMemory(to: Int.self, capacity: readValue!.count).pointee // used to read an Int value
             
-            print("read string value: \(String(describing: readValue))")
-            print("read int value: \(value)")
+            print("write string value: \(String(describing: readValue))")
+            print("write int value: \(value)")
         }
-        
+            
         else if (characteristic.uuid == ZoeS2_Watch_Read_Characteristic_UUID) {
             
             let readValue = characteristic.value
@@ -261,7 +275,7 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         isMyPeripheralConected = false // and to falso when disconnected
     }
-
+    
     
     // if you want to send an string you can use this function.
     func writeValue() {
@@ -298,24 +312,4 @@ class ViewController: UIViewController, CBCentralManagerDelegate, CBPeripheralDe
         present(alertController, animated: true, completion: nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func StopConectting(_ sender: Any) {
-//        print("stop scanning.")
-//        manager.stopScan()
-        print("stop connecting.")
-        if BluetoothConnectingIndex != nil {
-            manager.cancelPeripheralConnection(BluetoothPeripheral[BluetoothConnectingIndex!])
-        }
-    }
-    
-    @IBAction func Rescan(_ sender: Any) {
-        BluetoothDevice = []
-        BluetoothDeviceUUID = []
-        tableView.reloadData()
-    }
 }
-

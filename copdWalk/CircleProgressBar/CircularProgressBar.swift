@@ -11,8 +11,6 @@ import UIKit
 
 class CircularProgressBar: UIView {
     
-    var currentStep:Int = 0
-    
     //MARK: awakeFromNib
     
     override func awakeFromNib() {
@@ -45,8 +43,8 @@ class CircularProgressBar: UIView {
         }
     }
     
-    public func setProgress(to progressConstant: Double, withAnimation: Bool, CurrentStep: Int) {
-        currentStep = CurrentStep
+    public func setProgress(to progressConstant: Double, withAnimation: Bool) {
+        
         var progress: Double {
             get {
                 if progressConstant > 1 { return 1 }
@@ -61,27 +59,28 @@ class CircularProgressBar: UIView {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             animation.fromValue = 0
             animation.toValue = progress
-            animation.duration = 1
+            animation.duration = 2
             foregroundLayer.add(animation, forKey: "foregroundAnimation")
             
         }
         
-        
-        
         var currentTime:Double = 0
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
-            if currentTime >= 1{
+        let timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
+            if currentTime >= 2{
                 timer.invalidate()
             } else {
                 currentTime += 0.05
-                let percent = currentTime * 100
+                let percent = currentTime/2 * 100
                 self.label.text = "\(Int(progress * percent))"
                 self.setForegroundLayerColorForSafePercent()
                 self.configLabel()
             }
         }
         timer.fire()
+        
     }
+    
+    
     
     
     //MARK: Private
@@ -140,7 +139,6 @@ class CircularProgressBar: UIView {
     }
     
     private func configLabel(){
-        label.text = "\(currentStep)"
         label.sizeToFit()
         label.center = pathCenter
     }

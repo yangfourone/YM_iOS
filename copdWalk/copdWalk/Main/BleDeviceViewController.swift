@@ -12,8 +12,8 @@ class BleDeviceViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var DevicePhoto = ["Watch.png","Box.png","Wristband.png"]
     var DeviceName = ["智慧手錶 ZoeS2","環境盒子 Env_Box","血氧手環 SPO2"]
-    var DeviceUUID = ["----------","----------","68:8E:00:12:A2:01"]
-    var DeviceState = ["未連接","未連接","已連接"]
+    var DeviceUUID = ["----------","----------","----------"]
+    var DeviceState = ["未連接","未連接","未連接"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +66,9 @@ class BleDeviceViewController: UIViewController, UITableViewDelegate, UITableVie
         let alertController = UIAlertController(title: "搜尋藍牙裝置?", message: "請確認您的藍芽已經開啟", preferredStyle: .alert)
         let scanAction = UIAlertAction(title: "搜尋", style: .default) {
             (action) in
-            // connect
+            //TODO: connection view & bluetooth manager
+            let BluetoothConnectionViewController = self.storyboard?.instantiateViewController(withIdentifier: "ble_connection") as! BluetoothConnectionViewController
+            self.navigationController?.pushViewController(BluetoothConnectionViewController, animated: true)
         }
         let cancel = UIAlertAction(title: "取消", style: .cancel)
         

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F80D886D22B23B1C00DF333C /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F80D886422B09C2100DF333C /* Charts.framework */; };
+		F80D886E22B23B1C00DF333C /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F80D886422B09C2100DF333C /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F825FC3B21ABD809005793A7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F825FC3A21ABD809005793A7 /* MainViewController.swift */; };
 		F825FC3E21ACF39A005793A7 /* DailyStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F825FC3D21ACF39A005793A7 /* DailyStepViewController.swift */; };
 		F825FC4221ACF3FA005793A7 /* SymptomManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F825FC4121ACF3FA005793A7 /* SymptomManageViewController.swift */; };
@@ -14,6 +16,8 @@
 		F825FC4721AD1369005793A7 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F825FC4621AD1369005793A7 /* CircularProgressBar.swift */; };
 		F825FC4921AD562F005793A7 /* TableviewCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F825FC4821AD562F005793A7 /* TableviewCellViewController.swift */; };
 		F825FC4F21AE6C51005793A7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F825FC4E21AE6C51005793A7 /* HealthKit.framework */; };
+		F8291F7622965AE700239628 /* BluetoothConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8291F7522965AE700239628 /* BluetoothConnectionViewController.swift */; };
+		F8291F7822967EC500239628 /* FEV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8291F7722967EC500239628 /* FEV1.swift */; };
 		F82EF8D921060FDB0035BB96 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8D821060FDB0035BB96 /* LoginViewController.swift */; };
 		F82EF8DB210610060035BB96 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8DA210610060035BB96 /* RegisterViewController.swift */; };
 		F82EF8DD210610130035BB96 /* EnvironmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82EF8DC210610130035BB96 /* EnvironmentViewController.swift */; };
@@ -31,28 +35,7 @@
 		F839032B22607EF5008FDDAD /* MedicineRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839032A22607EF5008FDDAD /* MedicineRecordViewController.swift */; };
 		F839032D22607F0E008FDDAD /* MedicineSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839032C22607F0E008FDDAD /* MedicineSettingViewController.swift */; };
 		F839032F226188CA008FDDAD /* MedicineUsageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839032E226188CA008FDDAD /* MedicineUsageTableViewCell.swift */; };
-		F83903332261B1D4008FDDAD /* AlvescoUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903322261B1D4008FDDAD /* AlvescoUsageViewController.swift */; };
-		F83903352261B1F7008FDDAD /* AnoroElliptaUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903342261B1F7008FDDAD /* AnoroElliptaUsageViewController.swift */; };
-		F83903372261B206008FDDAD /* AtroventUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903362261B206008FDDAD /* AtroventUsageViewController.swift */; };
-		F83903392261B213008FDDAD /* BerodualUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903382261B213008FDDAD /* BerodualUsageViewController.swift */; };
-		F839033B2261B222008FDDAD /* BerotecUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839033A2261B222008FDDAD /* BerotecUsageViewController.swift */; };
-		F839033D2261B238008FDDAD /* DuasmaUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839033C2261B238008FDDAD /* DuasmaUsageViewController.swift */; };
-		F839033F2261B2DF008FDDAD /* FlixotideAccuhalerUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839033E2261B2DF008FDDAD /* FlixotideAccuhalerUsageViewController.swift */; };
-		F83903412261B2F2008FDDAD /* FlixotideEvohalerUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903402261B2F2008FDDAD /* FlixotideEvohalerUsageViewController.swift */; };
-		F83903432261B304008FDDAD /* FosterUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903422261B304008FDDAD /* FosterUsageViewController.swift */; };
-		F83903452261B312008FDDAD /* IncruseElliptaUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903442261B312008FDDAD /* IncruseElliptaUsageViewController.swift */; };
-		F83903472261B323008FDDAD /* OnbrezBreezhalerUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903462261B323008FDDAD /* OnbrezBreezhalerUsageViewController.swift */; };
-		F83903492261B340008FDDAD /* PulmicortTurbuhalerUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903482261B340008FDDAD /* PulmicortTurbuhalerUsageViewController.swift */; };
-		F839034B2261B36C008FDDAD /* RelvarElliptaUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839034A2261B36C008FDDAD /* RelvarElliptaUsageViewController.swift */; };
-		F839034D2261B37D008FDDAD /* SeretideUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839034C2261B37D008FDDAD /* SeretideUsageViewController.swift */; };
-		F839034F2261B38B008FDDAD /* SpioltoRespimatUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839034E2261B38B008FDDAD /* SpioltoRespimatUsageViewController.swift */; };
-		F83903512261B39F008FDDAD /* SpirivaUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903502261B39F008FDDAD /* SpirivaUsageViewController.swift */; };
-		F83903532261B3B1008FDDAD /* StriverdiRespimatUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903522261B3B1008FDDAD /* StriverdiRespimatUsageViewController.swift */; };
-		F83903552261B3C2008FDDAD /* SymbicortTurbuhalerUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903542261B3C2008FDDAD /* SymbicortTurbuhalerUsageViewController.swift */; };
-		F83903572261B3D2008FDDAD /* UltibroBreezhalerUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903562261B3D2008FDDAD /* UltibroBreezhalerUsageViewController.swift */; };
-		F83903592261B3E6008FDDAD /* VentolinUsageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903582261B3E6008FDDAD /* VentolinUsageViewController.swift */; };
 		F839035D2261D495008FDDAD /* MedicineSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839035C2261D495008FDDAD /* MedicineSettingTableViewCell.swift */; };
-		F839035F2261DA18008FDDAD /* AlvescoSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F839035E2261DA18008FDDAD /* AlvescoSettingViewController.swift */; };
 		F83903622262DE89008FDDAD /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83903612262DE89008FDDAD /* DeviceTableViewCell.swift */; };
 		F83A78D92186ADE500DAE9E1 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83A78D82186ADE500DAE9E1 /* Checkbox.swift */; };
 		F896A33221F2E38700766F65 /* mMRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F896A33121F2E38700766F65 /* mMRC.swift */; };
@@ -84,6 +67,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		F80D886322B09C2100DF333C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F80D885E22B09C2100DF333C /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
+			remoteInfo = Charts;
+		};
+		F80D886522B09C2100DF333C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F80D885E22B09C2100DF333C /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
+			remoteInfo = ChartsTests;
+		};
+		F80D886F22B23B1C00DF333C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F80D885E22B09C2100DF333C /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A58A4ED274A941CA248EA921;
+			remoteInfo = Charts;
+		};
 		F8BE277120E370B3004A6AC8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F8BE275420E370B2004A6AC8 /* Project object */;
@@ -100,7 +104,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F80D887122B23B1C00DF333C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F80D886E22B23B1C00DF333C /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		F80D885E22B09C2100DF333C /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		F8183C9A21671AE40086E5B6 /* copdWalk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = copdWalk.entitlements; sourceTree = "<group>"; };
 		F825FC3A21ABD809005793A7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F825FC3D21ACF39A005793A7 /* DailyStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStepViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +128,8 @@
 		F825FC4621AD1369005793A7 /* CircularProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		F825FC4821AD562F005793A7 /* TableviewCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableviewCellViewController.swift; sourceTree = "<group>"; };
 		F825FC4E21AE6C51005793A7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		F8291F7522965AE700239628 /* BluetoothConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConnectionViewController.swift; sourceTree = "<group>"; };
+		F8291F7722967EC500239628 /* FEV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FEV1.swift; sourceTree = "<group>"; };
 		F82EF8D821060FDB0035BB96 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F82EF8DA210610060035BB96 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F82EF8DC210610130035BB96 /* EnvironmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentViewController.swift; sourceTree = "<group>"; };
@@ -126,28 +147,7 @@
 		F839032A22607EF5008FDDAD /* MedicineRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineRecordViewController.swift; sourceTree = "<group>"; };
 		F839032C22607F0E008FDDAD /* MedicineSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineSettingViewController.swift; sourceTree = "<group>"; };
 		F839032E226188CA008FDDAD /* MedicineUsageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineUsageTableViewCell.swift; sourceTree = "<group>"; };
-		F83903322261B1D4008FDDAD /* AlvescoUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlvescoUsageViewController.swift; sourceTree = "<group>"; };
-		F83903342261B1F7008FDDAD /* AnoroElliptaUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnoroElliptaUsageViewController.swift; sourceTree = "<group>"; };
-		F83903362261B206008FDDAD /* AtroventUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtroventUsageViewController.swift; sourceTree = "<group>"; };
-		F83903382261B213008FDDAD /* BerodualUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerodualUsageViewController.swift; sourceTree = "<group>"; };
-		F839033A2261B222008FDDAD /* BerotecUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BerotecUsageViewController.swift; sourceTree = "<group>"; };
-		F839033C2261B238008FDDAD /* DuasmaUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuasmaUsageViewController.swift; sourceTree = "<group>"; };
-		F839033E2261B2DF008FDDAD /* FlixotideAccuhalerUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlixotideAccuhalerUsageViewController.swift; sourceTree = "<group>"; };
-		F83903402261B2F2008FDDAD /* FlixotideEvohalerUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlixotideEvohalerUsageViewController.swift; sourceTree = "<group>"; };
-		F83903422261B304008FDDAD /* FosterUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FosterUsageViewController.swift; sourceTree = "<group>"; };
-		F83903442261B312008FDDAD /* IncruseElliptaUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncruseElliptaUsageViewController.swift; sourceTree = "<group>"; };
-		F83903462261B323008FDDAD /* OnbrezBreezhalerUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnbrezBreezhalerUsageViewController.swift; sourceTree = "<group>"; };
-		F83903482261B340008FDDAD /* PulmicortTurbuhalerUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulmicortTurbuhalerUsageViewController.swift; sourceTree = "<group>"; };
-		F839034A2261B36C008FDDAD /* RelvarElliptaUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelvarElliptaUsageViewController.swift; sourceTree = "<group>"; };
-		F839034C2261B37D008FDDAD /* SeretideUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeretideUsageViewController.swift; sourceTree = "<group>"; };
-		F839034E2261B38B008FDDAD /* SpioltoRespimatUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpioltoRespimatUsageViewController.swift; sourceTree = "<group>"; };
-		F83903502261B39F008FDDAD /* SpirivaUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirivaUsageViewController.swift; sourceTree = "<group>"; };
-		F83903522261B3B1008FDDAD /* StriverdiRespimatUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StriverdiRespimatUsageViewController.swift; sourceTree = "<group>"; };
-		F83903542261B3C2008FDDAD /* SymbicortTurbuhalerUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbicortTurbuhalerUsageViewController.swift; sourceTree = "<group>"; };
-		F83903562261B3D2008FDDAD /* UltibroBreezhalerUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UltibroBreezhalerUsageViewController.swift; sourceTree = "<group>"; };
-		F83903582261B3E6008FDDAD /* VentolinUsageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VentolinUsageViewController.swift; sourceTree = "<group>"; };
 		F839035C2261D495008FDDAD /* MedicineSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineSettingTableViewCell.swift; sourceTree = "<group>"; };
-		F839035E2261DA18008FDDAD /* AlvescoSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlvescoSettingViewController.swift; sourceTree = "<group>"; };
 		F83903612262DE89008FDDAD /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
 		F83A78D82186ADE500DAE9E1 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		F896A33121F2E38700766F65 /* mMRC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mMRC.swift; sourceTree = "<group>"; };
@@ -190,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F825FC4F21AE6C51005793A7 /* HealthKit.framework in Frameworks */,
+				F80D886D22B23B1C00DF333C /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +211,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F80D885F22B09C2100DF333C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F80D886422B09C2100DF333C /* Charts.framework */,
+				F80D886622B09C2100DF333C /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F8183C9B21671AE40086E5B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,51 +289,15 @@
 				F839032C22607F0E008FDDAD /* MedicineSettingViewController.swift */,
 				F839032E226188CA008FDDAD /* MedicineUsageTableViewCell.swift */,
 				F839035C2261D495008FDDAD /* MedicineSettingTableViewCell.swift */,
-				F83903302261B167008FDDAD /* Alert */,
-				F83903312261B178008FDDAD /* Setting */,
 			);
 			path = Medicine;
-			sourceTree = "<group>";
-		};
-		F83903302261B167008FDDAD /* Alert */ = {
-			isa = PBXGroup;
-			children = (
-				F83903322261B1D4008FDDAD /* AlvescoUsageViewController.swift */,
-				F83903342261B1F7008FDDAD /* AnoroElliptaUsageViewController.swift */,
-				F83903362261B206008FDDAD /* AtroventUsageViewController.swift */,
-				F83903382261B213008FDDAD /* BerodualUsageViewController.swift */,
-				F839033A2261B222008FDDAD /* BerotecUsageViewController.swift */,
-				F839033C2261B238008FDDAD /* DuasmaUsageViewController.swift */,
-				F839033E2261B2DF008FDDAD /* FlixotideAccuhalerUsageViewController.swift */,
-				F83903402261B2F2008FDDAD /* FlixotideEvohalerUsageViewController.swift */,
-				F83903422261B304008FDDAD /* FosterUsageViewController.swift */,
-				F83903442261B312008FDDAD /* IncruseElliptaUsageViewController.swift */,
-				F83903462261B323008FDDAD /* OnbrezBreezhalerUsageViewController.swift */,
-				F83903482261B340008FDDAD /* PulmicortTurbuhalerUsageViewController.swift */,
-				F839034A2261B36C008FDDAD /* RelvarElliptaUsageViewController.swift */,
-				F839034C2261B37D008FDDAD /* SeretideUsageViewController.swift */,
-				F839034E2261B38B008FDDAD /* SpioltoRespimatUsageViewController.swift */,
-				F83903502261B39F008FDDAD /* SpirivaUsageViewController.swift */,
-				F83903522261B3B1008FDDAD /* StriverdiRespimatUsageViewController.swift */,
-				F83903542261B3C2008FDDAD /* SymbicortTurbuhalerUsageViewController.swift */,
-				F83903562261B3D2008FDDAD /* UltibroBreezhalerUsageViewController.swift */,
-				F83903582261B3E6008FDDAD /* VentolinUsageViewController.swift */,
-			);
-			path = Alert;
-			sourceTree = "<group>";
-		};
-		F83903312261B178008FDDAD /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				F839035E2261DA18008FDDAD /* AlvescoSettingViewController.swift */,
-			);
-			path = Setting;
 			sourceTree = "<group>";
 		};
 		F83903602262DE4F008FDDAD /* Device */ = {
 			isa = PBXGroup;
 			children = (
 				F83903612262DE89008FDDAD /* DeviceTableViewCell.swift */,
+				F8291F7522965AE700239628 /* BluetoothConnectionViewController.swift */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -341,6 +315,7 @@
 			children = (
 				F8CCBF9121856E7F00FE65D4 /* Cat.swift */,
 				F896A33121F2E38700766F65 /* mMRC.swift */,
+				F8291F7722967EC500239628 /* FEV1.swift */,
 			);
 			path = SymptomManage;
 			sourceTree = "<group>";
@@ -354,6 +329,7 @@
 				F8BE277E20E370B3004A6AC8 /* copdWalkUITests */,
 				F8BE275D20E370B2004A6AC8 /* Products */,
 				F8183C9B21671AE40086E5B6 /* Frameworks */,
+				F80D885E22B09C2100DF333C /* Charts.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -451,10 +427,12 @@
 				F8BE275820E370B2004A6AC8 /* Sources */,
 				F8BE275920E370B2004A6AC8 /* Frameworks */,
 				F8BE275A20E370B2004A6AC8 /* Resources */,
+				F80D887122B23B1C00DF333C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F80D887022B23B1C00DF333C /* PBXTargetDependency */,
 			);
 			name = copdWalk;
 			productName = copdWalk;
@@ -511,6 +489,9 @@
 						CreatedOnToolsVersion = 9.4;
 						LastSwiftMigration = 1000;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.HealthKit = {
 								enabled = 1;
 							};
@@ -540,6 +521,12 @@
 			mainGroup = F8BE275320E370B2004A6AC8;
 			productRefGroup = F8BE275D20E370B2004A6AC8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F80D885F22B09C2100DF333C /* Products */;
+					ProjectRef = F80D885E22B09C2100DF333C /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F8BE275B20E370B2004A6AC8 /* copdWalk */,
@@ -548,6 +535,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		F80D886422B09C2100DF333C /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = F80D886322B09C2100DF333C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F80D886622B09C2100DF333C /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = F80D886522B09C2100DF333C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F8BE275A20E370B2004A6AC8 /* Resources */ = {
@@ -582,27 +586,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8CCBF9221856E7F00FE65D4 /* Cat.swift in Sources */,
-				F83903432261B304008FDDAD /* FosterUsageViewController.swift in Sources */,
 				F82EF8D921060FDB0035BB96 /* LoginViewController.swift in Sources */,
 				F82EF8DB210610060035BB96 /* RegisterViewController.swift in Sources */,
 				F8CCBF4021819F1C00FE65D4 /* UserData+CoreDataClass.swift in Sources */,
 				F825FC4421ACF415005793A7 /* MedicineBoxViewController.swift in Sources */,
-				F839034F2261B38B008FDDAD /* SpioltoRespimatUsageViewController.swift in Sources */,
 				F8CCBF4B2181AAED00FE65D4 /* Activity+CoreDataClass.swift in Sources */,
-				F83903452261B312008FDDAD /* IncruseElliptaUsageViewController.swift in Sources */,
-				F83903352261B1F7008FDDAD /* AnoroElliptaUsageViewController.swift in Sources */,
 				F8CCBF8F21856CCF00FE65D4 /* SSRadioButtonsController.swift in Sources */,
-				F839035F2261DA18008FDDAD /* AlvescoSettingViewController.swift in Sources */,
-				F839034B2261B36C008FDDAD /* RelvarElliptaUsageViewController.swift in Sources */,
 				F8CCBF3B21819C5A00FE65D4 /* Device+CoreDataProperties.swift in Sources */,
 				F8CCBF3521819C5A00FE65D4 /* Pdo+CoreDataProperties.swift in Sources */,
 				F8CCBF4C2181AAED00FE65D4 /* Activity+CoreDataProperties.swift in Sources */,
-				F83903412261B2F2008FDDAD /* FlixotideEvohalerUsageViewController.swift in Sources */,
 				F82EF8E1210610500035BB96 /* ActivityViewController.swift in Sources */,
-				F839033D2261B238008FDDAD /* DuasmaUsageViewController.swift in Sources */,
 				F82EF8EB210619690035BB96 /* PersonalInfoViewController.swift in Sources */,
 				F8CCBF3621819C5A00FE65D4 /* Daily+CoreDataClass.swift in Sources */,
 				F838AE5A2147BA6C00747879 /* Education_4.swift in Sources */,
+				F8291F7622965AE700239628 /* BluetoothConnectionViewController.swift in Sources */,
 				F838AE582147BA6500747879 /* Education_3.swift in Sources */,
 				F896A33221F2E38700766F65 /* mMRC.swift in Sources */,
 				F8BE276220E370B2004A6AC8 /* ViewController.swift in Sources */,
@@ -614,38 +611,26 @@
 				F82EF8DF2106103D0035BB96 /* HistoryViewController.swift in Sources */,
 				F8CCBF3721819C5A00FE65D4 /* Daily+CoreDataProperties.swift in Sources */,
 				F839032922607EDB008FDDAD /* MedicineUsageViewController.swift in Sources */,
-				F83903572261B3D2008FDDAD /* UltibroBreezhalerUsageViewController.swift in Sources */,
-				F83903472261B323008FDDAD /* OnbrezBreezhalerUsageViewController.swift in Sources */,
 				F8CCBF3021819C5A00FE65D4 /* Evaluate+CoreDataClass.swift in Sources */,
-				F83903532261B3B1008FDDAD /* StriverdiRespimatUsageViewController.swift in Sources */,
 				F8DB9402219180540019780A /* Login+CoreDataClass.swift in Sources */,
 				F8CCBF4121819F1C00FE65D4 /* UserData+CoreDataProperties.swift in Sources */,
-				F83903332261B1D4008FDDAD /* AlvescoUsageViewController.swift in Sources */,
-				F83903512261B39F008FDDAD /* SpirivaUsageViewController.swift in Sources */,
 				F8CCBF9021856CCF00FE65D4 /* SSRadioButton.swift in Sources */,
 				F8CCBEC62181990700FE65D4 /* copdLocalDB.xcdatamodeld in Sources */,
-				F83903392261B213008FDDAD /* BerodualUsageViewController.swift in Sources */,
 				F82EF8E32106106D0035BB96 /* EducationViewController.swift in Sources */,
 				F82EF8E9210619420035BB96 /* BleDeviceViewController.swift in Sources */,
-				F839034D2261B37D008FDDAD /* SeretideUsageViewController.swift in Sources */,
 				F83A78D92186ADE500DAE9E1 /* Checkbox.swift in Sources */,
-				F83903492261B340008FDDAD /* PulmicortTurbuhalerUsageViewController.swift in Sources */,
-				F83903552261B3C2008FDDAD /* SymbicortTurbuhalerUsageViewController.swift in Sources */,
+				F8291F7822967EC500239628 /* FEV1.swift in Sources */,
 				F839032F226188CA008FDDAD /* MedicineUsageTableViewCell.swift in Sources */,
 				F825FC3E21ACF39A005793A7 /* DailyStepViewController.swift in Sources */,
 				F825FC4221ACF3FA005793A7 /* SymptomManageViewController.swift in Sources */,
-				F839033F2261B2DF008FDDAD /* FlixotideAccuhalerUsageViewController.swift in Sources */,
 				F825FC4921AD562F005793A7 /* TableviewCellViewController.swift in Sources */,
 				F82EF8DD210610130035BB96 /* EnvironmentViewController.swift in Sources */,
 				F838AE542147BA4200747879 /* Education_1.swift in Sources */,
 				F8CCBF3421819C5A00FE65D4 /* Pdo+CoreDataClass.swift in Sources */,
 				F838AE5C2147BA7400747879 /* Education_5.swift in Sources */,
-				F83903372261B206008FDDAD /* AtroventUsageViewController.swift in Sources */,
 				F838AE562147BA5B00747879 /* Education_2.swift in Sources */,
 				F839032B22607EF5008FDDAD /* MedicineRecordViewController.swift in Sources */,
 				F8CCBF3A21819C5A00FE65D4 /* Device+CoreDataClass.swift in Sources */,
-				F83903592261B3E6008FDDAD /* VentolinUsageViewController.swift in Sources */,
-				F839033B2261B222008FDDAD /* BerotecUsageViewController.swift in Sources */,
 				F839032D22607F0E008FDDAD /* MedicineSettingViewController.swift in Sources */,
 				F8CCBF3121819C5A00FE65D4 /* Evaluate+CoreDataProperties.swift in Sources */,
 				F825FC3B21ABD809005793A7 /* MainViewController.swift in Sources */,
@@ -671,6 +656,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		F80D887022B23B1C00DF333C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = F80D886F22B23B1C00DF333C /* PBXContainerItemProxy */;
+		};
 		F8BE277220E370B3004A6AC8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F8BE275B20E370B2004A6AC8 /* copdWalk */;
@@ -822,6 +812,7 @@
 		F8BE278520E370B3004A6AC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = copdWalk/copdWalk.entitlements;
@@ -845,6 +836,7 @@
 		F8BE278620E370B3004A6AC8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = copdWalk/copdWalk.entitlements;

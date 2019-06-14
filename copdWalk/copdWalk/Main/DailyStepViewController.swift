@@ -13,52 +13,113 @@ class DailyStepViewController: UIViewController {
 
     @IBOutlet weak var progressBar: CircularProgressBar!
     @IBOutlet weak var WeeklyTargetStep: UILabel!
+    @IBOutlet weak var totalWeeklySteps: UILabel!
+    @IBOutlet weak var totalWeeklyHITime: UILabel!
+    @IBOutlet weak var currentSteps: UILabel!
     
-    var currentStep:Int!
-    var targetStep:Int!
+    var weeklyStepArray:[Double] = []
+    var weeklySteps:Double = 0.0
     
     let healthStore = HKHealthStore()
-    
-    func getTodaysSteps(completion: @escaping (Double) -> Void) {
-        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
-        
-        let now = Date()
-        let startOfDay = Calendar.current.startOfDay(for: now)
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: now, options: .strictStartDate)
-        
-        let query = HKStatisticsQuery(quantityType: stepsQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, _ in
-            guard let result = result, let sum = result.sumQuantity() else {
-                completion(0.0)
-                return
-            }
-            completion(sum.doubleValue(for: HKUnit.count()))
-        }
-        
-        healthStore.execute(query)
-    }
+    let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentStep = 3851
-        targetStep = 5500
-        
+        if HKHealthStore.isHealthDataAvailable() {
+            // 設定哪些資料可以寫入
+            let shareTypes = self.dataTypesToShare()
+            // 設定哪些資料可以讀出
+            let readTypes = self.dataTypesToRead()
+
+            // 跳出授權畫面
+            healthStore.requestAuthorization(toShare: shareTypes, read: readTypes, completion: { (success, error) in
+                if success {
+
+                    self.getStepsHistory()
+
+                } else {
+                    print("授權失敗, error: \(String(describing: error))")
+                }
+            })
+        }
         // Do any additional setup after loading the view.
-        progressBar.lineWidth = 20
-        progressBar.labelSize = 30
-        progressBar.safePercent = 85
-        progressBar.setProgress(to: Double(currentStep)/Double(targetStep), withAnimation: false, CurrentStep: currentStep)
         
+        sleep(1)
+        setProgressbar(currentStep: Double(currentSteps.text!)!, targetStep: 5500.0)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func dataTypesToShare() -> Set<HKSampleType>? {
+        return nil
     }
-    */
 
+    func dataTypesToRead() -> Set<HKObjectType>? {
+        var set = Set<HKObjectType>()
+        set.insert(HKQuantityType.quantityType(forIdentifier: .stepCount)!)
+        
+        return set
+    }
+    
+    func getStepsHistory() {
+        
+        let now = Date()
+        // weekday format
+        let weekdayFormatter = DateFormatter()
+        weekdayFormatter.dateFormat = "EEEE"
+        // time format
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let time = formatter.string(from: now)
+        
+        let startDate = Calendar.current.date(byAdding: .day, value: -6, to: now)!
+        
+        
+        
+        var interval = DateComponents()
+        interval.day = 1
+
+        var anchorComponents = Calendar.current.dateComponents([.day, .month, .year], from: now)
+        anchorComponents.hour = 8
+        let anchorDate = Calendar.current.date(from: anchorComponents)!
+
+        let query = HKStatisticsCollectionQuery(quantityType: stepsQuantityType,
+                                                quantitySamplePredicate: nil,
+                                                options: [.cumulativeSum],
+                                                anchorDate: anchorDate,
+                                                intervalComponents: interval)
+
+        query.initialResultsHandler = { _, results, error in
+            guard let results = results else {
+                print("Error returned form resultHandler = \(String(describing: error?.localizedDescription))")
+                return
+            }
+
+            results.enumerateStatistics(from: startDate, to: now) { statistics, _ in
+                if let sum = statistics.sumQuantity() {
+                    let steps = sum.doubleValue(for: HKUnit.count())
+                    let weekday = weekdayFormatter.string(from: statistics.startDate)
+//                    print("\(weekday), steps: \(Int(steps)), date: \(statistics.startDate)")
+                    self.weeklySteps += steps
+                    self.weeklyStepArray.append(steps)
+                    self.currentSteps.text = String(Int(steps))
+                }
+            }
+        }
+
+        healthStore.execute(query)
+    }
+    
+    func setProgressbar(currentStep:Double , targetStep:Double) {
+        progressbarStyling()
+        let percent = String(format: "%.2f", currentStep/targetStep)
+        progressBar.setProgress(to: Double(percent)!, withAnimation: true)
+        totalWeeklySteps.text = "步數：\(Int(weeklySteps)) 步"
+        print("步數：\(Int(weeklySteps)) 步")
+    }
+    
+    func progressbarStyling() {
+        progressBar.lineWidth = 20
+        progressBar.labelSize = 0
+        progressBar.safePercent = 85
+    }
 }

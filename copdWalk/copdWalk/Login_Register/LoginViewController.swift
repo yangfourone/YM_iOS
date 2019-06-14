@@ -25,16 +25,20 @@ class LoginViewController: UIViewController {
     var viewContext: NSManagedObjectContext!
     
     /** Post Data**/
-    let url = URL(string: "https://140.118.122.241/copd/apiv1/admin/login")
+//    let url = URL(string: "https://140.118.122.241/copd/apiv1/admin/login")
+    let url = URL(string: "http://copd.local.website/apiv1/user/login")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         //self.navigationController?.navigationBar.isHidden = true
-        //viewContext = app.persistentContainer.viewContext
+        viewContext = app.persistentContainer.viewContext
         
         if UserDefaults.standard.bool(forKey: "isLogin") {
+            // query account and save it to public valiable
+            
             let MainViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
             self.navigationController?.pushViewController(MainViewController, animated: false)
         }
@@ -62,85 +66,99 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func register(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "register")
-        show(vc!, sender: self)
+        let RegisterViewController = self.storyboard?.instantiateViewController(withIdentifier: "register") as! RegisterViewController
+        self.navigationController?.pushViewController(RegisterViewController, animated: true)
     }
     
     @IBAction func login(_ sender: Any) {
         
         /** POST Login **/
         
-//        if account.text == "" || password.text == "" {
-//            let alertController = UIAlertController(title: "ERROR", message: "帳號或密碼不能為空", preferredStyle: .actionSheet)
-//            let okAction = UIAlertAction(title: "OK", style: .default) {
-//                (action) in
-//                self.dismiss (animated: true, completion: nil)
-//            }
-//            alertController.addAction(okAction)
-//            present(alertController, animated: true, completion: nil)
-//        } else {
-//            var request = URLRequest(url: url!)
-//            request.httpBody = "id=\(account.text!)&pwd=\(password.text!)".data(using: .utf8)
-//            request.httpMethod = "POST"
-//
-//            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-//                guard error == nil && data != nil else {
-//                    print("error=\(error)")
-//                    return
-//                }
-//
-//                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-//                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
-//                    print("response = \(response)")
-//                }
-//
-//                let responseString = String(data: data!, encoding: .utf8)
-//                print("responseString = \(responseString)")
-//            }
-//            task.resume()
-//        }
-        
-        /** Testing Login **/
-        
-        if account.text == "qwerty" && password.text == "" {
-            user_account = "qwerty"
-            //insertLoginData()
-
-            UserDefaults.standard.set(true, forKey: "isLogin")
-            let MainViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-            self.navigationController?.pushViewController(MainViewController, animated: true)
-            /*
-            let vc = storyboard?.instantiateViewController(withIdentifier: "tabbar")
-            show(vc!, sender: self)
-            */
-
-        } else {
-            //設定為 alert action
-            let alertController = UIAlertController(title: "ERROR", message: "帳號或密碼有錯誤", preferredStyle: .alert)
+        if account.text == "" || password.text == "" {
+            let alertController = UIAlertController(title: "ERROR", message: "帳號或密碼不能為空", preferredStyle: .actionSheet)
             let okAction = UIAlertAction(title: "OK", style: .default) {
                 (action) in
                 self.dismiss (animated: true, completion: nil)
             }
-            //增加按鍵
             alertController.addAction(okAction)
-            //顯示提醒
             present(alertController, animated: true, completion: nil)
+        } else {
+            var request = URLRequest(url: url!)
+            request.httpBody = "id=\(account.text!)&pwd=\(password.text!)".data(using: .utf8)
+            request.httpMethod = "POST"
+
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                guard error == nil && data != nil else {
+                    print("error=\(String(describing: error))")
+                    return
+                }
+
+                if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                    print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                    print("response = \(String(describing: response))")
+                    return
+                }
+
+                let responseString = String(data: data!, encoding: .utf8)
+                print("responseString = \(String(describing: responseString))")
+            }
+            task.resume()
+            
+            UserDefaults.standard.set(true, forKey: "isLogin")
+            print("self.account.text = \(self.account.text!)")
+            
+            // delete old data and insert new account into local database
+            print("\nQUERY")
+            print(queryLoginData())
+            print("\nDELETE")
+            deleteLoginData_OneByOne()
+            print("\nINSERT")
+            insertLoginData()
+            print("\nQUERY")
+            print(queryLoginData())
+            print("----------------")
+            
+            // push to main view controller
+            let MainViewController = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            self.navigationController?.pushViewController(MainViewController, animated: true)
         }
     }
     func queryLoginData() -> String {
         do {
-            let allUsers = try viewContext.fetch(Login.fetchRequest())
-            for user in allUsers as! [Login] {
-                user_account = user.account
+            let allAccounts = try viewContext.fetch(Login.fetchRequest())
+            for account in allAccounts as! [Login] {
+                print(account.account ?? "NULL")
+                user_account = account.account
             }
         } catch {
             print("error: \(error)")
         }
-        return user_account ?? "nil"
+        return user_account ?? "NULL"
     }
     func insertLoginData() {
         let CoreData_Login = NSEntityDescription.insertNewObject(forEntityName: "Login", into: viewContext) as! Login
-        CoreData_Login.account = user_account
+        CoreData_Login.account = self.account.text!
+        // 存擋
+        app.saveContext()
+    }
+    func deleteLoginData_OneByOne() {
+        do {
+            let allAccounts = try viewContext.fetch(Login.fetchRequest())
+            for account in allAccounts as! [Login] {
+                viewContext.delete(account)
+            }
+            app.saveContext()
+        } catch {
+            print("error: \(error)")
+        }
+    }
+    func deleteLoginData_Batch() {
+        let batch = NSBatchDeleteRequest(fetchRequest: Login.fetchRequest())
+        do {
+            try app.persistentContainer.persistentStoreCoordinator.execute(batch, with: viewContext)
+        } catch {
+            print("error: \(error)")
+        }
     }
 }
 
